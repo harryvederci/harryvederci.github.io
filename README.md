@@ -1,5 +1,2 @@
-# test-page
+# Coming soon...
 
-## Bla
-
-Nothing to see here.

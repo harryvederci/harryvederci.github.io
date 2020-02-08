@@ -9,7 +9,7 @@ projects:
 #  - id: <name that I can easily recognize the project with>
 #    job_title:
 #    employer: <company I worked for>
-#    employer_locationn: Groningen
+#    employer_location: Groningen
 #    client: <if different than employer>
 #    client_location:
 #    description:
@@ -18,7 +18,7 @@ projects:
   - id: RWS Harvester
     job_title: Backend Developer
     employer: IBM CIC Benelux
-    employer_locationn: Groningen
+    employer_location: Groningen
     client: RWS (Dutch Directorate-General for Public Works and Water Management)
     client_location: Delft
     description: >
@@ -26,8 +26,8 @@ projects:
               and writes them to a database that is used by a publicly available service.
     time_period: jan 2020 - current
     technologies:
-      - Java (Spring Boot)
-      - SQL (Oracle)
+      - name: Java (Spring Boot)
+      - name: SQL (Oracle)
 
 # TODO: Test if project works, then implement all projects below this comment.
 
@@ -39,6 +39,15 @@ projects:
 #     success, and was directly followed up by a 5-figure project.
 #     ### Time Period
 #     nov 2019 - dec 2019
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Backend Developer (Java - Netty - Spring Boot) at IBM CIC Benelux (Groningen)
 #     ### Description
@@ -48,6 +57,16 @@ projects:
 #     batch, to lower the application its bandwidth usage.
 #     ### Time Period
 #     aug 2019 - nov 2019
+#
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## DevOps Engineer (Docker - Nginx - RHEL) at IBM CIC Benelux (Groingen)
 #     ### Description
@@ -56,6 +75,15 @@ projects:
 #     service to proxy requests and provide TLS/SSL support.
 #     ### Time Period
 #     jun 2019 - aug 2019
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Full Stack Developer (Java - Vimscript - Angular 7) at IBM CIC Benelux (Groningen)
 #     ### Description
@@ -65,6 +93,15 @@ projects:
 #     domain.
 #     ### Time Period
 #     dec 2018 - jun 2019
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Backend Developer (Java - Spring Boot) at IBM CIC Benelux (Groningen)
 #     ### Description
@@ -73,6 +110,15 @@ projects:
 #     designed solutions and took care of the DevOps process.
 #     ### Time Period
 #     apr 2018 - dec 2018
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Front End Developer (Angular 5) at IBM CIC Benelux (Groningen)
 #     ### Description
@@ -83,6 +129,15 @@ projects:
 #     break existing features.
 #     ### Time Period
 #     jan 2018 - apr 2018
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Front End Developer (React) at IBM CIC Benelux (Groningen)
 #     ### Description
@@ -90,12 +145,30 @@ projects:
 #     consultants can use to assess the value of enterprise applications.
 #     ### Time Period
 #     dec 2017 - dec 2017
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Full Stack Developer (Ruby on Rails) at IBM CIC Benelux (Groningen)
 #     I added new features to a government-owned Ruby on Rails application about
 #     innovation in sports. I deployed changes to production myself.
 #     ### Time Period
 #     jul 2017 - dec 2017
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Front End Developer (Angular 4) at IBM CIC Benelux (Groningen)
 #     As a Proof of Concept, I created the front end of an application that visualises
@@ -104,12 +177,30 @@ projects:
 #     years.
 #     ### Time Period
 #     aug 2017 - jul 2017
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Front End Developer (Angular 4) at IBM CIC Benelux (Groningen)
 #     To impress an important potential client for IBM, I created a beautiful
 #     Apple-style microsite.
 #     ### Time Period
 #     jul 2017 - aug 2017
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Front End Developer at IBM CIC Benelux (Groningen)
 #     ### Description
@@ -119,6 +210,15 @@ projects:
 #     environment.
 #     ### Time Period
 #     jun 2017 - jul 2017
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 
 #     ## Student-Researcher (graduation project) at University of Groningen
 #     ### Description
@@ -127,4 +227,13 @@ projects:
 #     biometric data from foreigners.
 #     ### Time Period
 #     jun 2016 - jan 2017
+#  - id: <name that I can easily recognize the project with>
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location: Groningen
+#    client: <if different than employer>
+#    client_location:
+#    description:
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: <list of strings of technologies used>
 

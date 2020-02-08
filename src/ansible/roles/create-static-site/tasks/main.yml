@@ -1,4 +1,9 @@
 ---
+- name: Remove current deploy directory
+  file:
+    path: '{{ static_site_deploy_directory }}'
+    state: absent
+
 - name: Create deploy directory
   file:
     path: '{{ static_site_deploy_directory }}'
@@ -29,10 +34,10 @@
     src: contact.html.j2
     dest: '{{ static_site_deploy_directory }}/contact.html'
 
-# - name: Add resume page # TODO: first finish creating project list in vars/main.yml, then implement it in resume.html.j2, then uncomment this block.
-  # template:
-    # src: resume.html.j2
-    # dest: '{{ static_site_deploy_directory }}/resume.html'
+- name: Add resume page # TODO: first finish creating project list in vars/main.yml, then implement it in resume.html.j2, then uncomment this block.
+  template:
+    src: resume.html.j2
+    dest: '{{ static_site_deploy_directory }}/resume.html'
 
 - name: Add global css style file
   copy:

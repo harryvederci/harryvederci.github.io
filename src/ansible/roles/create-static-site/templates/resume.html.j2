@@ -1,2 +1,49 @@
-{# TODO: finish creating projects list in vars/main.yml, then generate this file with a for-loop #}
+<style>
+/* TODO: move style to css file */
 
+#experience-container {
+  margin-left: 15%;
+}
+
+#experience-header {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project {
+  width: 60%;
+}
+
+.project-time-period {
+  float: right;
+}
+</style>
+
+
+
+<div id=experience-container>
+  <div id="experience-header">Experience</div>
+  {% for project in projects %}
+  <div class="project">
+    <div class="project-header">
+      <b>{{ project.job_title }}</b>
+      at {{ project.employer }}
+      <span class="project-time-period"> {{ project.time_period }}</span>
+    </div>
+    <div>{{ project.description }}</div>
+    {% if project.technologies|length %}
+      <ul>
+      {% for technology in project.technologies %}
+      <li>{{ technology.name }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  {# project content = job_title | employer | employer_location | client | client_location | description | time_period | technologies (= list) #}
+
+
+
+</div>

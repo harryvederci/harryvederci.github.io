@@ -1,6 +1,16 @@
 ---
+- name: Create deploy directory
+  # become: true
+    file:
+      path: "{{ static_site_deploy_directory }}"
+      state: directory
+      # owner: ?
+      # group: ?
+      # mode: 0500
+
 - name: Add index page
-  become: true
+  # become: true
     template:
       src: index.html.j2
-      dest: "{{ static_site_deploy_path }}"
+      dest: "{{ static_site_deploy_directory }}/index.html"
+

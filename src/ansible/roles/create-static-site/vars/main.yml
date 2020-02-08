@@ -1,4 +1,5 @@
 ---
 vars:
-  static_site_deploy_path: docs # TODO: check if this works
+  static_site_deploy_directory: docs # TODO: check if this works
+  temporary_var: test
 

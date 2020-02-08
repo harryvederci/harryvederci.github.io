@@ -6,7 +6,7 @@
 
 - name: Create files/resources/images directory within the deploy directory
   file:
-    path: '{{ static_site_deploy_directory }}'/files/resources/images
+    path: '{{ static_site_deploy_directory }}/files/resources/images'
     state: directory
 
 - name: Add Not Found Page (required for github pages)
@@ -32,11 +32,11 @@
 - name: Add global css style file
   copy:
     src: global.css
-    dest: '{{ static_site_deploy_directory }}'/files/global.css
+    dest: '{{ static_site_deploy_directory }}/files/global.css'
 
 # TODO: verify this works
 # - name: Add my picture
   # copy:
     # src: resources/images/my-picture.jpg
-    # dest: '{{ static_site_deploy_directory }}'/files/resources/images/my-picture.jpg
+    # dest: '{{ static_site_deploy_directory }}/files/resources/images/my-picture.jpg'
 

@@ -1,8 +1,6 @@
 ---
 - name: use create-static-site role playbook
   hosts: localhost
-  # remote_user: <username>
-  # become: true
   roles:
-  - create-static-site
+    - role: create-static-site
 

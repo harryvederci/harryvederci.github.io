@@ -1,5 +1,4 @@
 ---
-vars:
-  static_site_deploy_directory: docs # TODO: check if this works
-  temporary_var: test
+static_site_deploy_directory: docs
+index_page_temporary_message: Coming soon...
 

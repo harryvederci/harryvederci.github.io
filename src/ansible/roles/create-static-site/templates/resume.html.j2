@@ -1,8 +1,21 @@
 <style>
 /* TODO: move style to css file */
 
-#experience-container {
-  margin-left: 10px;
+
+* {
+  box-sizing: border-box;
+}
+
+
+.column-left {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+.column-right {
+  float: left;
+  width: 70%;
+  padding: 10px;
 }
 
 #experience-header {
@@ -23,11 +36,30 @@
   font-size: small;
   padding-top: 3px;
 }
+
+.row:after { /* Clear floats after the columns */
+  content: "";
+  display: table;
+  clear: both;
+}
+
 </style>
 
 
+<div class="column-left">
+  <div>TODO: first name</div>
+  <div>TODO: last name</div>
+  <div>TODO: job title</div>
+  <div>TODO: skills</div>
+  <div>TODO: languages (English/Dutch)</div>
+  <div>TODO: telephone number</div>
+  <div>TODO: email address</div>
+  <div>TODO: linkedin</div>
+  <div>TODO: (bottom) website url</div>
+</div>
 
-<div id=experience-container>
+
+<div id=experience-container class="column-right">
   <div id="experience-header">Experience</div>
   {% for project in projects %}
   <div class="project">

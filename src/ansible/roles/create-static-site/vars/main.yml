@@ -1,4 +1,4 @@
 ---
-static_site_deploy_directory: docs
+static_site_deploy_directory: ../../docs
 index_page_temporary_message: Coming soon...
 

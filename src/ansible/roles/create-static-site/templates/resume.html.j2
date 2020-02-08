@@ -20,6 +20,8 @@
 
 .project-time-period {
   float: right;
+  font-size: small;
+  padding-top: 3px;
 }
 </style>
 
@@ -31,8 +33,10 @@
   <div class="project">
     <div class="project-header">
       <div>
-        <span>{{ project.employer }} ({{ project.employer_location }})</span>
-        <span class="project-time-period"> {{ project.time_period }}</span>
+        <span>
+          {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
+        </span>
+        <span class="project-time-period"> {{ project.time_period | upper }}</span>
       </div>
       <div>
         <span><b>{{ project.job_title }}:</b></span>

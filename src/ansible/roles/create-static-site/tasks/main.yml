@@ -4,7 +4,7 @@
     path: '{{ static_site_deploy_directory }}'
     state: directory
 
-- name: Create files/resources/images directory within the deploy directory
+- name: Create resources/images directory within the deploy directory
   file:
     path: '{{ static_site_deploy_directory }}/resources/images'
     state: directory
@@ -34,9 +34,8 @@
     src: global.css
     dest: '{{ static_site_deploy_directory }}/global.css'
 
-# TODO: verify this works
-# - name: Add my picture
-  # copy:
-    # src: resources/images/my-picture.jpg
-    # dest: '{{ static_site_deploy_directory }}/files/resources/images/my-picture.jpg'
+- name: Add my picture
+  copy:
+    src: resources/images/my-picture.jpg
+    dest: '{{ static_site_deploy_directory }}/resources/images/my-picture.jpg'
 

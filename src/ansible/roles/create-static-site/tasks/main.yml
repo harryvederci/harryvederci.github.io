@@ -1,2 +1,6 @@
 ---
-# tasks file
+- name: Add index page
+  become: true
+    template:
+      src: index.html.j2
+      dest: "{{ static_site_deploy_path }}"

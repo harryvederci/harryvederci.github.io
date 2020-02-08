@@ -1,2 +1,4 @@
 ---
-# vars file
+vars:
+  static_site_deploy_path: docs # TODO: check if this works
+

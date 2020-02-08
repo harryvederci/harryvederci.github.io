@@ -2,7 +2,7 @@
 /* TODO: move style to css file */
 
 #experience-container {
-  margin-left: 15%;
+  margin-left: 10px;
 }
 
 #experience-header {
@@ -13,6 +13,9 @@
 
 .project {
   width: 60%;
+  min-width: 60%;
+  background: lavender; /* TODO: remove this */
+  margin-bottom: 10px;
 }
 
 .project-time-period {
@@ -27,11 +30,16 @@
   {% for project in projects %}
   <div class="project">
     <div class="project-header">
-      <b>{{ project.job_title }}</b>
-      at {{ project.employer }}
-      <span class="project-time-period"> {{ project.time_period }}</span>
+      <div>
+        <span>{{ project.employer }} ({{ project.employer_location }})</span>
+        <span class="project-time-period"> {{ project.time_period }}</span>
+      </div>
+      <div>
+        <span><b>{{ project.job_title }}:</b></span>
+        <span>{{ project.description }}</span>
+      </div>
     </div>
-    <div>{{ project.description }}</div>
+    <!-- TODO: remove, or add a filter feature
     {% if project.technologies|length %}
       <ul>
       {% for technology in project.technologies %}
@@ -39,6 +47,7 @@
       {% endfor %}
       </ul>
     {% endif %}
+    -->
   </div>
   {% endfor %}
 

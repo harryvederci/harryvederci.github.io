@@ -1,4 +1,6 @@
 ---
+static_site_domain_name: hprins.com
+static_site_domain_name_with_https_prefix: https://hprins.com
 static_site_deploy_directory: ../../docs
 index_page_temporary_message: <h1>Coming soon...</h1>
 

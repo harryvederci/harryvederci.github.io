@@ -3,12 +3,40 @@
   file:
     path: '{{ static_site_deploy_directory }}'
     state: directory
-    # owner: ?
-    # group: ?
-    # mode: 0500
+
+- name: Create files/resources/images directory within the deploy directory
+  file:
+    path: '{{ static_site_deploy_directory }}'/files/resources/images
+    state: directory
+
+- name: Add Not Found Page (required for github pages)
+  template:
+    src: 404.html.j2
+    dest: '{{ static_site_deploy_directory }}/404.html'
+
+- name: Add CNAME page (required for github pages)
+  template:
+    src: CNAME.j2
+    dest: '{{ static_site_deploy_directory }}/CNAME'
 
 - name: Add index page
   template:
     src: index.html.j2
     dest: '{{ static_site_deploy_directory }}/index.html'
+
+- name: Add contact page
+  template:
+    src: contact.html.j2
+    dest: '{{ static_site_deploy_directory }}/contact.html'
+
+- name: Add global css style file
+  copy:
+    src: global.css
+    dest: '{{ static_site_deploy_directory }}'/files/global.css
+
+# TODO: verify this works
+# - name: Add my picture
+  # copy:
+    # src: resources/images/my-picture.jpg
+    # dest: '{{ static_site_deploy_directory }}'/files/resources/images/my-picture.jpg
 

@@ -24,21 +24,21 @@ body {
 }
 
 .skill-icons-container {
-  float: right
+  float: right;
 }
 
 
 .column-left {
   float: left;
   width: 30%;
-  padding: 10px;
+  padding: 20px 10px;
   height: 100rem;
   background-color: lightgray;
 }
 .column-right {
   float: left;
   width: 70%;
-  padding: 10px;
+  padding: 20px;
   height: 100rem;
   {# background-color: white; #}
 }
@@ -107,7 +107,9 @@ body {
       <div>
       {% for skill in skills %}
       <div>
-        {{ skill.name }}
+        <span class="skill-name-container">
+          {{ skill.name }}
+        </span>
         <div class="skill-icons-container">
           {% for n in range(skill.level) %}
           <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
@@ -129,7 +131,9 @@ body {
       <div>
       {% for language in languages %}
       <div>
-        {{ language.name }}
+        <span class="skill-name-container">
+          {{ language.name }}
+        </span>
         <div class="skill-icons-container">
           {% for n in range(language.level) %}
           <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>

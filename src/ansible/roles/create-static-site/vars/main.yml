@@ -226,8 +226,8 @@ projects:
     # client_location:
     description: >
               For an official law evaluation, I wrote a Python application to analyze if Dutch
-              government agencies were acting in compliance with the law when collecting
-              biometric data from foreigners.
+              government agencies acted in compliance with the law when collecting biometric
+              data from foreigners.
     time_period: jun 2016 - jan 2017
     technologies: ['Python']
 

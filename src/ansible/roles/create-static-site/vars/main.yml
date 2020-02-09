@@ -15,9 +15,10 @@ languages:
     level: 4
 
 about_me: > # NOTE: Try to keep below ~300 characters.
-       I am a law graduate with a passion for web development. My positive character
-       and social skills allow me to combine hard work with friendly and constructive
-       collegiality. Because of my creative mind I often have innovative ideas.
+       I am a full-stack developer with a background in IT-Law.
+       I have experience with projects in both the public and private sector.
+       My positive character and social skills allow me to combine hard work
+       with friendly and constructive collegiality.
 
 skills:
   - {level: 3, name: Java (Spring)}

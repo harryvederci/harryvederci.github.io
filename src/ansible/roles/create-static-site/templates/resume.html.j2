@@ -14,6 +14,25 @@
   }
 }
 
+
+
+
+
+
+/*
+.skill-icon-full {
+  background: #2471A3;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: solid 5px black;
+}
+*/
+
+
+
+
+
 .column-left {
   float: left;
   width: 30%;
@@ -30,10 +49,13 @@
   font-weight: 600;
 }
 
-#experience-header {
+#about-me-header, #experience-header {
   font-size: 25px;
   font-weight: 600;
   margin-bottom: 8px;
+}
+#experience-header {
+  margin-top: 8px;
 }
 
 .project {
@@ -46,7 +68,7 @@
 
 .project-time-period {
   float: right;
-  font-size: small;
+  font-size: 0.75em;
   padding-top: 3px;
 }
 
@@ -68,11 +90,19 @@
     {% if skills|length %}
     <div>
       <div>Skills</div>
-      <ul>
+      <div>
       {% for skill in skills %}
-      <li>{{ skill.name }}: {{ skill.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
+      <div>
+        {{ skill.name }}
+        {% for n in range(skill.level) %}
+        <span class="skill-icon-full">{}</span>
+        {% endfor %}
+        {% for n in range(5 - skill.level) %}
+        <span class="skill-icon-empty">[]</span>
+        {% endfor %}
+      </div>
       {% endfor %}
-      </ul>
+      </div>
     </div>
     {% endif %}
     {% if languages|length %}
@@ -99,33 +129,45 @@
     {% endif %}
   </div>
 
-  <div id="experience-container" class="column-right">
-    <div id="experience-header">Experience</div>
-    {% for project in projects %}
-    <div class="project">
-      <div class="project-header">
-        <div>
-          <span>
-            {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
-          </span>
-          <span class="project-time-period"> {{ project.time_period | upper }}</span>
-        </div>
-        <div>
-          <span><b>{{ project.job_title }}:</b></span>
-          <span>{{ project.description }}</span>
-        </div>
+  <div class="column-right">
+    <div id="about-me">
+      <div id="about-me-header">
+        About me
       </div>
-      <!-- TODO: remove, or add a filter feature
-      {% if project.technologies|length %}
-        <ul>
-        {% for technology in project.technologies %}
-        <li>{{ technology }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-      -->
+      <div id="about-me-content">
+        {{ about_me }}
+      </div>
     </div>
-    {% endfor %}
+
+    <div id="experience-container">
+
+      <div id="experience-header">Experience</div>
+      {% for project in projects %}
+      <div class="project">
+        <div class="project-header">
+          <div>
+            <span>
+              {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
+            </span>
+            <span class="project-time-period"> {{ project.time_period | upper }}</span>
+          </div>
+          <div>
+            <span><b>{{ project.job_title }}:</b></span>
+            <span>{{ project.description }}</span>
+          </div>
+        </div>
+        <!-- TODO: remove, or add a filter feature
+        {% if project.technologies|length %}
+          <ul>
+            {% for technology in project.technologies %}
+            <li>{{ technology }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        -->
+      </div>
+      {% endfor %}
+    </div>
   </div>
 
 </div>

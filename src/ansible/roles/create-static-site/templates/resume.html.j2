@@ -47,15 +47,41 @@
 
 
 <div class="column-left">
-  <div>TODO: first name</div>
-  <div>TODO: last name</div>
-  <div>TODO: job title</div>
-  <div>TODO: skills</div>
-  <div>TODO: languages (English/Dutch)</div>
+  <div>{{ first_name }}</div>
+  <div>{{ last_name }}</div>
+  <div>{{ job_title }}</div>
+  {% if skills|length %}
+  <div>
+    <div>Skills</div>
+    <ul>
+    {% for skill in skills %}
+    <li>{{ skill.name }}: {{ skill.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if languages|length %}
+  <div>
+    <div>Languages</div>
+    <ul>
+    {% for language in languages %}
+    <li>{{ language.name }}: {{ language.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
   <div>TODO: telephone number</div>
   <div>TODO: email address</div>
-  <div>TODO: linkedin</div>
-  <div>TODO: (bottom) website url</div>
+  {% if static_site_domain_name is defined %}
+  <div>
+    <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
+  </div>
+  {% endif %}
+  {% if linkedin_account_name is defined %}
+  <div>
+    <a href="https://www.linkedin.com/in/{{ linkedin_account_name }}" target="_blank">linkedin.com/in/{{ linkedin_account_name }}</a>
+  </div>
+  {% endif %}
 </div>
 
 

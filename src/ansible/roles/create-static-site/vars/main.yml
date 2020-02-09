@@ -1,8 +1,18 @@
 ---
 static_site_domain_name: hprins.com
-static_site_domain_name_with_https_prefix: https://hprins.com
 static_site_deploy_directory: ../../docs
 index_page_temporary_message: <h1>Coming soon...</h1>
+
+first_name: Harry
+last_name: Prins
+title: LL.M
+linkedin_account_name: hwprins
+job_title: Full Stack Developer
+languages:
+  - name: Dutch
+    level: 5
+  - name: English
+    level: 4
 
 skills:
   - name: Java (Spring)
@@ -53,7 +63,7 @@ projects:
     description: >
               I created an application that retrieves sensor measurements, transforms them,
               and writes them to a database that is used by a publicly available service.
-    time_period: jan 2020 - current
+    time_period: jan 2020 - now
     technologies:
       - name: Java (Spring Boot)
       - name: SQL (Oracle)

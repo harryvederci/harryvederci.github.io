@@ -39,6 +39,12 @@
   font-weight: 600;
 }
 
+#job-title {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
 #skills-box, #languages-box {
   padding-top: 5px;
 }
@@ -85,7 +91,7 @@
     <div>
       <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
     </div>
-    <div class="job-title">{{ job_title }}</div>
+    <div id="job-title">{{ job_title }}</div>
     {% if skills|length %}
     <div id="skills-box">
       <div id="skills-header">Skills</div>

@@ -14,34 +14,24 @@
   }
 }
 
-
-
-
-
-
-/*
-.skill-icon-full {
-  background: #2471A3;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  border: solid 5px black;
+.skill-icons-container {
+  float: right
 }
-*/
-
-
-
 
 
 .column-left {
   float: left;
   width: 30%;
-  padding: 10px;
+  padding: 10px; {# TODO: change to padding-right and test result #}
+  height: 100rem;
+  background-color: lightgray;
 }
 .column-right {
   float: left;
   width: 70%;
-  padding: 10px;
+  padding: 10px; {# TODO: change to padding-left and test result #}
+  height: 100rem;
+  background-color: aliceblue;
 }
 
 #first-name, #last-name {
@@ -86,7 +76,7 @@
     <div>
       <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
     </div>
-    <div>{{ job_title }}</div>
+    <div class="job-title">{{ job_title }}</div>
     {% if skills|length %}
     <div>
       <div>Skills</div>
@@ -94,12 +84,14 @@
       {% for skill in skills %}
       <div>
         {{ skill.name }}
-        {% for n in range(skill.level) %}
-        <span class="skill-icon-full">{}</span>
-        {% endfor %}
-        {% for n in range(5 - skill.level) %}
-        <span class="skill-icon-empty">[]</span>
-        {% endfor %}
+        <div class="skill-icons-container">
+          {% for n in range(skill.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
+          {% endfor %}
+          {% for n in range(5 - skill.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
+          {% endfor %}
+        </div>
       </div>
       {% endfor %}
       </div>

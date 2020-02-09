@@ -18,6 +18,11 @@
   padding: 10px;
 }
 
+#first-name, #last-name {
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
 #experience-header {
   font-size: 25px;
   font-weight: 600;
@@ -27,8 +32,11 @@
 .project {
   width: 60%;
   min-width: 60%;
-  background: lavender; /* TODO: remove this */
-  margin-bottom: 10px;
+  padding: 5px 0;
+}
+
+.project:not(:last-child) {
+  border-bottom: 1px dotted blue;
 }
 
 .project-time-period {
@@ -47,8 +55,9 @@
 
 
 <div class="column-left">
-  <div>{{ first_name }}</div>
-  <div>{{ last_name }}</div>
+  <div>
+    <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
+  </div>
   <div>{{ job_title }}</div>
   {% if skills|length %}
   <div>

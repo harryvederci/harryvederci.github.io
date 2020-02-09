@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 .column-left {
   float: left;
   width: 30%;
@@ -34,7 +33,7 @@
 }
 
 .project:not(:last-child) {
-  border-bottom: 1px dotted blue;
+  border-bottom: 1px dashed blue;
 }
 
 .project-time-period {
@@ -51,73 +50,75 @@
 
 </style>
 
+<div id="resume-container">
 
-<div class="column-left">
-  <div>
-    <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
-  </div>
-  <div>{{ job_title }}</div>
-  {% if skills|length %}
-  <div>
-    <div>Skills</div>
-    <ul>
-    {% for skill in skills %}
-    <li>{{ skill.name }}: {{ skill.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
-    {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-  {% if languages|length %}
-  <div>
-    <div>Languages</div>
-    <ul>
-    {% for language in languages %}
-    <li>{{ language.name }}: {{ language.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
-    {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-  <div>TODO: telephone number</div>
-  <div>TODO: email address</div>
-  {% if static_site_domain_name is defined %}
-  <div>
-    <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
-  </div>
-  {% endif %}
-  {% if linkedin_account_name is defined %}
-  <div>
-    <a href="https://www.linkedin.com/in/{{ linkedin_account_name }}" target="_blank">linkedin.com/in/{{ linkedin_account_name }}</a>
-  </div>
-  {% endif %}
-</div>
-
-
-<div id=experience-container class="column-right">
-  <div id="experience-header">Experience</div>
-  {% for project in projects %}
-  <div class="project">
-    <div class="project-header">
-      <div>
-        <span>
-          {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
-        </span>
-        <span class="project-time-period"> {{ project.time_period | upper }}</span>
-      </div>
-      <div>
-        <span><b>{{ project.job_title }}:</b></span>
-        <span>{{ project.description }}</span>
-      </div>
+  <div class="column-left">
+    <div>
+      <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
     </div>
-    <!-- TODO: remove, or add a filter feature
-    {% if project.technologies|length %}
+    <div>{{ job_title }}</div>
+    {% if skills|length %}
+    <div>
+      <div>Skills</div>
       <ul>
-      {% for technology in project.technologies %}
-      <li>{{ technology }}</li>
+      {% for skill in skills %}
+      <li>{{ skill.name }}: {{ skill.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
       {% endfor %}
       </ul>
+    </div>
     {% endif %}
-    -->
+    {% if languages|length %}
+    <div>
+      <div>Languages</div>
+      <ul>
+      {% for language in languages %}
+      <li>{{ language.name }}: {{ language.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <div>TODO: telephone number</div>
+    <div>TODO: email address</div>
+    {% if static_site_domain_name is defined %}
+    <div>
+      <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
+    </div>
+    {% endif %}
+    {% if linkedin_account_name is defined %}
+    <div>
+      <a href="https://www.linkedin.com/in/{{ linkedin_account_name }}" target="_blank">linkedin.com/in/{{ linkedin_account_name }}</a>
+    </div>
+    {% endif %}
   </div>
-  {% endfor %}
-</div>
+
+  <div id="experience-container" class="column-right">
+    <div id="experience-header">Experience</div>
+    {% for project in projects %}
+    <div class="project">
+      <div class="project-header">
+        <div>
+          <span>
+            {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
+          </span>
+          <span class="project-time-period"> {{ project.time_period | upper }}</span>
+        </div>
+        <div>
+          <span><b>{{ project.job_title }}:</b></span>
+          <span>{{ project.description }}</span>
+        </div>
+      </div>
+      <!-- TODO: remove, or add a filter feature
+      {% if project.technologies|length %}
+        <ul>
+        {% for technology in project.technologies %}
+        <li>{{ technology }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      -->
+    </div>
+    {% endfor %}
+  </div>
+
+<div id="resume-container">
 

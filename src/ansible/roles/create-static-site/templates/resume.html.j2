@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 @media only screen and (min-width: 800px) {
   body {
     max-width: 50rem; {# TODO: check if either this or the global css file max-width needs to be adjusted #}
@@ -22,16 +26,16 @@
 .column-left {
   float: left;
   width: 30%;
-  padding: 10px; {# TODO: change to padding-right and test result #}
+  padding: 10px;
   height: 100rem;
   background-color: lightgray;
 }
 .column-right {
   float: left;
   width: 70%;
-  padding: 10px; {# TODO: change to padding-left and test result #}
+  padding: 10px;
   height: 100rem;
-  background-color: aliceblue;
+  {# background-color: white; #}
 }
 
 #first-name, #last-name {

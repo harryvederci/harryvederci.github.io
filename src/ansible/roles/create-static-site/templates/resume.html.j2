@@ -1,5 +1,5 @@
 <style>
-/* TODO: move style to css file */
+{# TODO: move style to css file #}
 
 
 * {
@@ -8,7 +8,7 @@
 
 @media only screen and (min-width: 800px) {
   body {
-    max-width: 50rem; /* TODO: check if either this or the global css file max-width needs to be adjusted */
+    max-width: 50rem; {# TODO: check if either this or the global css file max-width needs to be adjusted #}
     padding: 2rem;
     margin: auto;
   }
@@ -39,6 +39,15 @@
   font-weight: 600;
 }
 
+#skills-box, #languages-box {
+  padding-top: 5px;
+}
+#skills-header, #languages-header {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 #about-me-header, #experience-header {
   font-size: 25px;
   font-weight: 600;
@@ -62,7 +71,7 @@
   padding-top: 3px;
 }
 
-.row:after { /* Clear floats after the columns */
+.row:after { {# Clear floats after the columns #}
   content: "";
   display: table;
   clear: both;
@@ -78,8 +87,8 @@
     </div>
     <div class="job-title">{{ job_title }}</div>
     {% if skills|length %}
-    <div>
-      <div>Skills</div>
+    <div id="skills-box">
+      <div id="skills-header">Skills</div>
       <div>
       {% for skill in skills %}
       <div>
@@ -97,16 +106,30 @@
       </div>
     </div>
     {% endif %}
+
+    {# TODO: refactor #}
     {% if languages|length %}
-    <div>
-      <div>Languages</div>
-      <ul>
+    <div id="languages-box">
+      <div id="languages-header">Languages</div>
+      <div>
       {% for language in languages %}
-      <li>{{ language.name }}: {{ language.level}}/5</li><!-- TODO: add stars/icons, and remove "/5" -->
+      <div>
+        {{ language.name }}
+        <div class="skill-icons-container">
+          {% for n in range(language.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
+          {% endfor %}
+          {% for n in range(5 - language.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
+          {% endfor %}
+        </div>
+      </div>
       {% endfor %}
-      </ul>
+      </div>
     </div>
     {% endif %}
+
+
     <div>TODO: telephone number</div>
     <div>TODO: email address</div>
     {% if static_site_domain_name is defined %}

@@ -44,8 +44,7 @@ projects:
 #    client_location:
 #    description: >
 #    time_period: mmm YYYY - mmm YYYY
-#    technologies:
-#      - name: # Java, e.g.
+#    technologies: ['', '']
 #    links:
 #      - # example: link to an article about an award won by the project
 
@@ -59,9 +58,7 @@ projects:
               I created an application that retrieves sensor measurements, transforms them,
               and writes them to a database that is used by a publicly available service.
     time_period: jan 2020 - now
-    technologies:
-      - name: Java (Spring Boot)
-      - name: SQL (Oracle)
+    technologies: ['Java (Spring Boot)', 'SQL (Oracle)']
 
   - id:
     job_title: Backend Developer
@@ -75,9 +72,7 @@ projects:
               that is used by a publicly available service. The Proof of Concept was a
               success, and was directly followed up by a 5-figure project.
     time_period: nov 2019 - dec 2019
-    technologies:
-      - name: Java (Spring Boot)
-      - name: SQL (Oracle)
+    technologies: ['Java (Spring Boot)', 'SQL (Oracle)']
 
   - id:
     job_title: Backend Developer
@@ -91,9 +86,7 @@ projects:
               a non-blocking way. I added a feature to compress messages and send them as a
               batch, to lower the application its bandwidth usage.
     time_period: aug 2019 - nov 2019
-    technologies:
-      - name: Java (Spring Boot)
-      - name: Netty
+    technologies: ['Java (Spring Boot)', 'Netty']
 
   - id:
     job_title: DevOps Engineer
@@ -106,10 +99,7 @@ projects:
               servers, and deployed the application using Docker Swarm. I also added an Nginx
               service to proxy requests and provide TLS/SSL support.
     time_period: jun 2019 - aug 2019
-    technologies:
-      - name: Docker
-      - name: Nginx
-      - name: RHEL
+    technologies: ['Docker', 'Nginx', 'RHEL']
 
   - id:
     job_title: Full Stack Developer
@@ -123,10 +113,7 @@ projects:
               features, pushed them to production, and moved the application to the ibm.com
               domain.
     time_period: dec 2018 - jun 2019
-    technologies:
-      - name: Java
-      - name: Vimscript
-      - name: Angular 7
+    technologies: ['Java', 'Vimscript', 'Angular 7']
 
   - id:
     job_title: Backend Developer
@@ -139,9 +126,7 @@ projects:
               winning Port of Rotterdam enterprise IoT application. My team independently
               designed solutions and took care of the DevOps process.
     time_period: apr 2018 - dec 2018
-    technologies:
-      - name: Java
-      - name: Spring Boot
+    technologies: ['Java', 'Spring Boot']
 #    links:
 #      - # TODO: add url (and add [0] after "award winning")
 
@@ -158,8 +143,7 @@ projects:
               I also added a test validation script to ensure reviewers that new code will not
               break existing features.
     time_period: jan 2018 - apr 2018
-    technologies:
-      - name: Angular 5
+    technologies: ['Angular 5']
 
   - id:
     job_title: Front End Developer
@@ -171,8 +155,7 @@ projects:
      For IBM, I was involved in the development of a tool that clients and
      consultants can use to assess the value of enterprise applications.
     time_period: dec 2017 - dec 2017
-    technologies:
-      - name: React
+    technologies: ['React']
 
   - id:
     job_title: Full Stack Developer
@@ -184,8 +167,7 @@ projects:
               I added new features to a government-owned Ruby on Rails application about
               innovation in sports. I deployed changes to production myself.
     time_period: jul 2017 - dec 2017
-    technologies:
-      - name: Ruby on Rails
+    technologies: ['Ruby on Rails']
 
   - id:
     job_title: Front End Developer
@@ -199,8 +181,7 @@ projects:
               success, and was followed up by a big enterprise project spanning multiple
               years.
     time_period: aug 2017 - jul 2017
-    technologies:
-      - name: Angular 4
+    technologies: ['Angular 4']
 
   - id:
     job_title: Front End Developer
@@ -212,8 +193,7 @@ projects:
               To impress an important potential client for IBM, I created a beautiful
               Apple-style microsite.
     time_period: jul 2017 - aug 2017
-    technologies:
-      - name: Angular 4
+    technologies: ['Angular 4']
 
   - id:
     job_title: Front End Developer
@@ -227,8 +207,7 @@ projects:
               solutions to overcome the limitations of a very restricted developing
               environment.
     time_period: jun 2017 - jul 2017
-    technologies:
-      - name: HTML/CSS/JS
+    technologies: ['HTML/CSS/JS']
 
   - id:
     job_title: Student-Researcher (graduation project)
@@ -241,6 +220,5 @@ projects:
               government agencies were acting in compliance with the law when collecting
               biometric data from foreigners.
     time_period: jun 2016 - jan 2017
-    technologies:
-      - name: Python
+    technologies: ['Python']
 

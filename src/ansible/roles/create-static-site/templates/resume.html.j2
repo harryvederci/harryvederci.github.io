@@ -105,16 +105,12 @@
     {% if project.technologies|length %}
       <ul>
       {% for technology in project.technologies %}
-      <li>{{ technology.name }}</li>
+      <li>{{ technology }}</li>
       {% endfor %}
       </ul>
     {% endif %}
     -->
   </div>
   {% endfor %}
-
-  {# project content = job_title | employer | employer_location | client | client_location | description | time_period | technologies (= list) #}
-
-
-
 </div>
+

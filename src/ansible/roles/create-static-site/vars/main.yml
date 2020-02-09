@@ -14,33 +14,25 @@ languages:
   - name: English
     level: 4
 
+about_me: > # NOTE: Try to keep below ~300 characters.
+       I am a law graduate with a passion for web development. My positive character
+       and social skills allow me to combine hard work with friendly and constructive
+       collegiality. Because of my creative mind I often have innovative ideas.
+
 skills:
-  - name: Java (Spring)
-    level: 3
-  - name: Docker
-    level: 3
-  - name: Angular 2+
-    level: 3
-  - name: SQL
-    level: 3
-  - name: TypeScript
-    level: 3
-  - name: Ansible
-    level: 2
-  - name: Shell Scripting
-    level: 2
-  - name: Node.js
-    level: 2
-  - name: Python
-    level: 2
-  - name: Ruby on Rails
-    level: 2
-  - name: React
-    level: 2
-  - name: Haskell
-    level: 1
-  - name: Scala
-    level: 1
+  - {level: 3, name: Java (Spring)}
+  - {level: 3, name: Docker}
+  - {level: 3, name: Angular 2+}
+  - {level: 3, name: SQL}
+  - {level: 3, name: TypeScript}
+  - {level: 2, name: Ansible}
+  - {level: 2, name: Shell Scripting}
+  - {level: 2, name: Node.js}
+  - {level: 2, name: Python}
+  - {level: 2, name: Ruby on Rails}
+  - {level: 2, name: React}
+  - {level: 1, name: Haskell}
+  - {level: 1, name: Scala}
 
 projects:
 ## <project template>:
@@ -50,9 +42,12 @@ projects:
 #    employer_location:
 #    client: <if different than employer>
 #    client_location:
-#    description:
+#    description: >
 #    time_period: mmm YYYY - mmm YYYY
-#    technologies: <list of strings of technologies used>
+#    technologies:
+#      - name: # Java, e.g.
+#    links:
+#      - # example: link to an article about an award won by the project
 
   - id: RWS Harvester
     job_title: Backend Developer
@@ -147,6 +142,8 @@ projects:
     technologies:
       - name: Java
       - name: Spring Boot
+#    links:
+#      - # TODO: add url (and add [0] after "award winning")
 
   - id:
     job_title: Front End Developer

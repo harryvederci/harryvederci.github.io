@@ -49,5 +49,7 @@
     src: resources/images/my-picture.jpg
     dest: '{{ static_site_deploy_directory }}/resources/images/my-picture.jpg'
 
-# TODO: add automated tests
+# TODO - add automated tests:
+#  - expect 200 response code when calling my domain name (+ existing individual pages)
+#  - expect 200 response for each in accounts -> {{ account.account_url}}/{{account.my_username }}
 

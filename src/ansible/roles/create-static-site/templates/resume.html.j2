@@ -122,10 +122,13 @@
       <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
     </div>
     {% endif %}
-    {% if linkedin_account_name is defined %}
+
+    {% if web_accounts is defined and web_accounts|length %}
+    {% for account in web_accounts %}
     <div>
-      <a href="https://www.linkedin.com/in/{{ linkedin_account_name }}" target="_blank">linkedin.com/in/{{ linkedin_account_name }}</a>
+      <a href="https://www.{{ account.url_segment }}/{{ account.my_username }}" target="_blank">{{ account.url_segment }}/{{ account.my_username }}</a>
     </div>
+    {% endfor %}
     {% endif %}
   </div>
 

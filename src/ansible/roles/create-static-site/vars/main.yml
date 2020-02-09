@@ -6,7 +6,15 @@ index_page_temporary_message: <h1>Coming soon...</h1>
 first_name: Harry
 last_name: Prins
 title: LL.M
-linkedin_account_name: hwprins
+
+web_accounts:
+  - service_name: linkedin
+    url_segment: linkedin.com/in
+    my_username: hwprins
+  - service_name: github
+    url_segment: github.com
+    my_username: harryvederci
+
 job_title: Full Stack Developer
 languages:
   - name: Dutch
@@ -71,7 +79,7 @@ projects:
               As a Proof of Concept, I created and demonstrated a "Harvester" application that
               retrieves sensor measurements, transforms them, and writes them to a database
               that is used by a publicly available service. The Proof of Concept was a
-              success, and was directly followed up by a 5-figure project.
+              success, and was directly followed up by a 6-figure project.
     time_period: nov 2019 - dec 2019
     technologies: ['Java (Spring Boot)', 'SQL (Oracle)']
 

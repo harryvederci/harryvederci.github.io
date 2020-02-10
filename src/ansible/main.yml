@@ -1,6 +1,7 @@
 ---
 - name: use create-static-site role playbook
   hosts: localhost
+  connection: local
   roles:
     - role: create-static-site
 

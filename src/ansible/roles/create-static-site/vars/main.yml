@@ -15,7 +15,7 @@ web_accounts:
     url_segment: github.com
     my_username: harryvederci
 
-job_title: Full Stack Developer
+job_title: Full Stack Developer # / Software Engineer
 languages:
   - name: Dutch
     level: 5

@@ -1,0 +1,187 @@
+projects:
+  - id: RWS Harvester
+    job_title: Backend Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client: RWS (Dutch Directorate-General for Public Works and Water Management)
+    client_location: Delft
+    description: >
+              I created an application that retrieves sensor measurements, transforms them,
+              and writes them to a database that is used by a publicly available service.
+    time_period: jan 2020 - now
+    technologies: ['Java (Spring Boot)', 'SQL (Oracle)']
+
+  - id:
+    job_title: Backend Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client: RWS
+    client_location: Delft
+    description: >
+              As a Proof of Concept, I created and demonstrated a "Harvester" application that
+              retrieves sensor measurements, transforms them, and writes them to a database
+              that is used by a publicly available service. The Proof of Concept was a
+              success, and was directly followed up by a 6-figure project.
+    time_period: nov 2019 - dec 2019
+    technologies: ['Java (Spring Boot)', 'SQL (Oracle)']
+
+  - id:
+    job_title: Backend Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client: RWS
+    client_location: Delft
+    description: >
+              For Rijkswaterstaat (the Dutch Directorate-General for Public Works and Water
+              Management) I created an application that forwards incoming sensor data in
+              a non-blocking way. I added a feature to compress messages and send them as a
+              batch, to lower the application its bandwidth usage.
+    time_period: aug 2019 - nov 2019
+    technologies: ['Java (Spring Boot)', 'Netty']
+
+  - id:
+    job_title: DevOps Engineer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              I "Dockerized" a Meteor/MongoDB application, configured Red Hat Enterprise Linux
+              servers, and deployed the application using Docker Swarm. I also added an Nginx
+              service to proxy requests and provide TLS/SSL support.
+    time_period: jun 2019 - aug 2019
+    technologies: ['Docker', 'Nginx', 'RHEL']
+
+  - id:
+    job_title: Full Stack Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              I merged 9 applications (database, backend, and frontend) into one, enabling
+              a smoother deployment process while cutting down hosting costs. I added new
+              features, pushed them to production, and moved the application to the ibm.com
+              domain.
+    time_period: dec 2018 - jun 2019
+    technologies: ['Java', 'Vimscript', 'Angular 7']
+
+  - id:
+    job_title: Backend Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              I was involved in the creation of several Java microservices for an award
+              winning[0] Port of Rotterdam enterprise IoT application. My team independently
+              designed solutions and took care of the DevOps process.
+    time_period: apr 2018 - dec 2018
+    technologies: ['Java (Spring Boot)']
+    links:
+      - https://www.computable.nl/artikel/nieuws/awards-nieuws/6824788/1853296/dit-zijn-de-winnaars-van-de-computable-awards-2019.html
+
+  - id:
+    job_title: Front End Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              I improved the quality, structure and development workflow of an enterprise IoT
+              application for Port of Rotterdam. I did this by unit testing and refactoring
+              existing code, adding new features, and reviewing the code of other developers.
+              I also added a test validation script to ensure reviewers that new code will not
+              break existing features.
+    time_period: jan 2018 - apr 2018
+    technologies: ['Angular 5']
+
+  - id:
+    job_title: Front End Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+     For IBM, I was involved in the development of a tool that clients and
+     consultants can use to assess the value of enterprise applications.
+    time_period: dec 2017 - dec 2017
+    technologies: ['React']
+
+  - id:
+    job_title: Full Stack Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              I added new features to a government-owned Ruby on Rails application about
+              innovation in sports. I deployed changes to production myself.
+    time_period: jul 2017 - dec 2017
+    technologies: ['Ruby on Rails']
+
+  - id:
+    job_title: Front End Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              As a Proof of Concept, I created the front end of an application that visualises
+              data collected by sensors in the Port of Rotterdam. The Proof of Concept was a
+              success, and was followed up by a big enterprise project spanning multiple
+              years.
+    time_period: aug 2017 - jul 2017
+    technologies: ['Angular 4']
+
+  - id:
+    job_title: Front End Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              To impress an important potential client for IBM, I created a beautiful
+              Apple-style microsite.
+    time_period: jul 2017 - aug 2017
+    technologies: ['Angular 4']
+
+  - id:
+    job_title: Front End Developer
+    employer: IBM CIC Benelux
+    employer_location: Groningen
+    client:
+    client_location:
+    description: >
+              For a major German bank, I went to Frankfurt to create the front end of an IBM
+              Watson application. With a rapidly approaching deadline, I made creative
+              solutions to overcome the limitations of a very restricted developing
+              environment.
+    time_period: jun 2017 - jul 2017
+    technologies: ['HTML/CSS/JS']
+
+  - id:
+    job_title: Student-Researcher (graduation project)
+    employer: University of Groningen
+    # employer_location:
+    # client:
+    # client_location:
+    description: >
+              For an official law evaluation, I wrote a Python application to analyze if Dutch
+              government agencies acted in compliance with the law when collecting biometric
+              data from foreigners.
+    time_period: jun 2016 - jan 2017
+    technologies: ['Python']
+
+### FULL PROJECT TEMPLATE ###
+#  - id: # ID with which you can easily recognize the project. Primarily for your own reference.
+#    job_title:
+#    employer: <company I worked for>
+#    employer_location:
+#    client: <if different than employer>
+#    client_location:
+#    description: >
+#    time_period: mmm YYYY - mmm YYYY
+#    technologies: ['', '']
+#    links:
+#      - # example: link to an article about an award won by the project

@@ -74,12 +74,13 @@ projects:
     client_location:
     description: >
               I was involved in the creation of several Java microservices for an award
-              winning[0] Port of Rotterdam enterprise IoT application. My team independently
+              winning Port of Rotterdam enterprise IoT application. My team independently
               designed solutions and took care of the DevOps process.
     time_period: apr 2018 - dec 2018
     technologies: ['Java (Spring Boot)']
     links:
-      - https://www.computable.nl/artikel/nieuws/awards-nieuws/6824788/1853296/dit-zijn-de-winnaars-van-de-computable-awards-2019.html
+      - name: award
+        url: https://www.computable.nl/artikel/nieuws/awards-nieuws/6824788/1853296/dit-zijn-de-winnaars-van-de-computable-awards-2019.html
 
   - id:
     job_title: Front End Developer
@@ -172,6 +173,9 @@ projects:
               data from foreigners.
     time_period: jun 2016 - jan 2017
     technologies: ['Python']
+    links:
+      - name: law evaluation
+        url: https://www.wodc.nl/onderzoeksdatabase/2693-evaluatie-van-de-wet-biometrie.aspx
 
 ### FULL PROJECT TEMPLATE ###
 #  - id: # ID with which you can easily recognize the project. Primarily for your own reference.
@@ -184,4 +188,6 @@ projects:
 #    time_period: mmm YYYY - mmm YYYY
 #    technologies: ['', '']
 #    links:
-#      - # example: link to an article about an award won by the project
+#      - name:
+#        url:
+

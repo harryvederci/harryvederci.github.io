@@ -14,21 +14,8 @@ body {
 }
 
 
-@media only screen and (max-width: 799px) {
-  .column-left, .column-right {
-    margin-top: 0px;
-  }
-}
-@media only screen and (min-width: 800px) {
-  body {
-    max-width: 50rem; {# TODO: check if either this or the global css file max-width needs to be adjusted #}
-    padding: 2rem;
-    margin: auto;
-  }
-}
-
 #resume-container {
-  min-width: 800px; /* TODO: make proper responsive (mobile-friendly) version */
+  /* min-width: 800px; */ /* TODO: make proper responsive (mobile-friendly) version */
 }
 
 .skill-icons-container {
@@ -37,17 +24,17 @@ body {
 }
 
 .column-left {
-  width: 30%;
-  margin-top: 10px;
-  float: left;
-  padding: 5px 20px;
-  border-right: 1px solid #acacac;
-}
-.column-right {
   width: 70%;
   margin-top: 10px;
   float: left;
   padding: 5px 20px;
+}
+.column-right {
+  width: 30%;
+  margin-top: 10px;
+  float: left;
+  padding: 5px 20px;
+  border-left: 1px solid #acacac;
 }
 
 #first-name, #last-name {
@@ -100,6 +87,20 @@ body {
   clear: both;
 }
 
+@media only screen and (max-width: 799px) {
+  .column-left, .column-right {
+    /* margin-top: 0px; */
+    width: unset;
+  }
+}
+@media only screen and (min-width: 800px) {
+  body {
+    max-width: 50rem; {# TODO: check if either this or the global css file max-width needs to be adjusted #}
+    padding: 2rem;
+    margin: auto;
+  }
+}
+
 </style>
 
 
@@ -109,10 +110,68 @@ body {
 <div id="resume-container">
 
   <div class="column-left">
-    <div>
+    <div id="about-me">
+      <div id="about-me-header">
+        About me
+      </div>
+      <div id="about-me-content">
+        {{ about_me }}
+      </div>
+    </div>
+
+    <div id="experience-container">
+
+      <div id="experience-header">Experience</div>
+      {% for project in projects %}
+      <div class="project">
+        <div class="project-header">
+          <div>
+            <span>
+              {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
+            </span>
+            <span class="project-time-period"> {{ project.time_period | upper }}</span>
+          </div>
+          <div>
+            <span><b>{{ project.job_title }}:</b></span>
+            <span>{{ project.description }}</span>
+          </div>
+
+          {# TODO: do not show on resume, only on website project list. #}
+          {#
+            {% if project.links is defined and project.links|length %}
+            <div>
+              Links:
+              {% for link in project.links %}
+              <div> - {{ link.name }}: {{ link.url }}</div>
+              {% endfor %}
+            </div>
+            {% endif %}
+          #}
+
+        </div>
+        <!-- TODO: remove, or add a filter feature
+        {% if project.technologies|length %}
+          <ul>
+            {% for technology in project.technologies %}
+            <li>{{ technology }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        -->
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="column-right">
+    <div id="full-name"> {# TODO: Make responsive. If screen is not wide enough for left+right columns, the full-name element should be displayed on top of the page. #}
       <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
     </div>
-    <div id="job-title">{{ job_title }}</div>
+
+    <div id="job-title">
+      {{ job_title }}
+    </div>
+
     {% if skills|length %}
     <div id="skills-box">
       <div id="skills-header">Skills</div>
@@ -177,47 +236,6 @@ body {
     </div>
     {% endfor %}
     {% endif %}
-  </div>
-
-  <div class="column-right">
-    <div id="about-me">
-      <div id="about-me-header">
-        About me
-      </div>
-      <div id="about-me-content">
-        {{ about_me }}
-      </div>
-    </div>
-
-    <div id="experience-container">
-
-      <div id="experience-header">Experience</div>
-      {% for project in projects %}
-      <div class="project">
-        <div class="project-header">
-          <div>
-            <span>
-              {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
-            </span>
-            <span class="project-time-period"> {{ project.time_period | upper }}</span>
-          </div>
-          <div>
-            <span><b>{{ project.job_title }}:</b></span>
-            <span>{{ project.description }}</span>
-          </div>
-        </div>
-        <!-- TODO: remove, or add a filter feature
-        {% if project.technologies|length %}
-          <ul>
-            {% for technology in project.technologies %}
-            <li>{{ technology }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-        -->
-      </div>
-      {% endfor %}
-    </div>
   </div>
 
 </div>

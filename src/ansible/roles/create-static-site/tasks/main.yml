@@ -9,7 +9,7 @@
     path: '{{ static_site_deploy_directory }}'
     state: absent
 
-- name: Import task file and create directories.
+- name: Create deploy directory and subdirectories.
   import_tasks: create-directory.yml
   vars:
     directories:

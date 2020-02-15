@@ -1,7 +1,14 @@
 ---
-- name: use create-static-site role playbook
+- name: Create static website.
   hosts: localhost
   connection: local
-  roles:
-    - role: create-static-site
+  tasks:
+   - name: Include all .yml files in the vars/static-site directory
+     include_vars:
+       dir: vars/static-site
+       extensions: [yml]
+
+   - name: Import create-static-site role
+     import_role:
+       name: create-static-site
 

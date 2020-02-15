@@ -1,8 +1,8 @@
 ---
-- name: Include all .yml files in the vars directory
-  include_vars:
-    dir: vars
-    extensions: [yml]
+# - name: Include all .yml files in the vars directory
+#   include_vars:
+#     dir: vars
+#     extensions: [yml]
 
 - name: Remove current deploy directory
   file:
@@ -34,7 +34,7 @@
     deploy_directory: '{{ static_site_deploy_directory }}'
     files:
       - global.css
-      - resources/images/my-picture.jpg
+      - resources/images/my-picture.jpg # TODO: Picture source file should not be part of this Ansible role, to make it reusable. Move to a /files directory at the level of the playbook that imports this Ansible role.
 
 # TODO - add automated tests:
 #  - expect 200 response code when calling my domain name (+ existing individual pages)

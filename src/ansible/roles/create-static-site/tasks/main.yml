@@ -26,6 +26,7 @@
       - index.html
       - contact.html
       - resume.html
+      - stats.html
 
 - name: Copy files.
   import_tasks: copy-file.yml

@@ -27,6 +27,7 @@
       - contact.html
       - resume.html
       - stats.html
+      - feedback.html
 
 - name: Copy files.
   import_tasks: copy-file.yml

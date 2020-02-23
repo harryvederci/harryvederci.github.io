@@ -24,7 +24,7 @@ about_me: > # NOTE: Try to keep below ~300 characters.
        My positive character and social skills allow me to combine hard work
        with friendly and constructive collegiality.
 
-skills:
+skills: # NOTE: Try to keep names below ~15 characters each.
   - {level: 3, name: Java (Spring)}
   - {level: 3, name: Docker}
   - {level: 3, name: Angular 2+}

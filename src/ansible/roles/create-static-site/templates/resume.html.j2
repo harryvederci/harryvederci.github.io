@@ -174,46 +174,42 @@ body {
     {% if skills|length %}
     <div id="skills-box">
       <div id="skills-header">Skills</div>
-      <div>
-        {% for skill in skills %}
-        <div>
-          <span class="skill-name-container">
-            {{ skill.name }}
-          </span>
-          <div class="skill-icons-container">
-            {% for n in range(skill.level) %}
-            <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
-            {% endfor %}
-            {% for n in range(5 - skill.level) %}
-            <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
-            {% endfor %}
-          </div>
+      {% for skill in skills %}
+      <div class="skill">
+        <span class="skill-name-container">
+          {{ skill.name }}
+        </span>
+        <div class="skill-icons-container">
+          {% for n in range(skill.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
+          {% endfor %}
+          {% for n in range(5 - skill.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
     {% endif %}
 
     {% if languages|length %}
     <div id="languages-box">
       <div id="languages-header">Languages</div>
-      <div>
-        {% for language in languages %}
-        <div>
-          <span class="skill-name-container">
-            {{ language.name }}
-          </span>
-          <div class="skill-icons-container">
-            {% for n in range(language.level) %}
-            <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
-            {% endfor %}
-            {% for n in range(5 - language.level) %}
-            <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
-            {% endfor %}
-          </div>
+      {% for language in languages %}
+      <div class="language">
+        <span class="skill-name-container">
+          {{ language.name }}
+        </span>
+        <div class="skill-icons-container">
+          {% for n in range(language.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
+          {% endfor %}
+          {% for n in range(5 - language.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
     {% endif %}
 

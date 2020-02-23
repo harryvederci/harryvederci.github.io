@@ -1,40 +1,47 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: #222;
-    max-width: 40rem;
-    padding: 2rem;
-    margin: auto;
-    background: #fafafa;
-}
+/* TODO: create sidebar/topbar like http://0pointer.de/blog/projects/systemd.html */
 
-pre.screen {
-    padding: 10px;
-    /*background: lightgrey;*/
-    background: #eee;
-    display: block;
-    overflow-x: auto;
-    user-select: all;
-}
+/* TODO: Remove this file, or change it into a jinja2 template. */
 
-pre.screen > .prompt {
-    display: block;
-}
 
-img {
-    max-width: 100%;
-}
+/* body { */
+/*     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; */
+/*      font-family: 'PT Sans', sans-serif; */
+/*     line-height: 1.6; */
+/*       color: #222; */
+/*     color: #4d4d4d; */
+/*     max-width: 40rem; */
+/*     padding: 2rem; */
+/*     margin: auto; */
+/*     background: #fafafa; */
+/* } */
 
-a {
-    color: #2ECC40;
-}
+/* pre.screen { */
+/*     padding: 10px; */
+/*       background: lightgrey; */
+/*     background: #eee; */
+/*     display: block; */
+/*     overflow-x: auto; */
+/*     user-select: all; */
+/* } */
 
-h1, h2, strong {
-    color: #111;
-}
+/* pre.screen > .prompt { */
+/*     display: block; */
+/* } */
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+/* img { */
+/*     max-width: 100%; */
+/* } */
+
+/* a { */
+/*     color: #2ECC40; */
+/* } */
+
+/* h1, h2, strong { */
+/*     color: #111; */
+/* } */
+
+/* table { */
+/*     border-collapse: collapse; */
+/*     width: 100%; */
+/* } */
 

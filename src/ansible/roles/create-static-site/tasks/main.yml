@@ -37,6 +37,21 @@
       - global.css
       - resources/images/my-picture.jpg # TODO: Picture source file should not be part of this Ansible role, to make it reusable. Move to a /files directory at the level of the playbook that imports this Ansible role.
 
+- name: TEMPORARY - Overwrite index page with resume page
+  template:
+    src: 'resume.html.j2'
+    dest: '{{ static_site_deploy_directory }}/index.html'
+
+- name: TEMPORARY - Remove unfinished page
+  file:
+    path: '{{ static_site_deploy_directory }}/{{ item }}'
+    state: absent
+  loop:
+    - contaxt.html
+    - stats.html
+    - feedback.html
+
+
 # TODO - add automated tests:
 #  - expect 200 response code when calling my domain name (+ existing individual pages)
 #  - expect 200 response for each in accounts -> {{ account.account_url}}/{{account.my_username }}

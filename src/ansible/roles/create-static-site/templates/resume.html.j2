@@ -2,7 +2,7 @@
 
 
 body {
-  margin: 0;
+  /* margin: 0; */
   color: #4d4d4d;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
@@ -89,11 +89,12 @@ body {
   opacity: 0.7;
 }
 
-#skills, #languages {
+/* TODO: refactor */
+#skills, #languages, #links, #contact-info {
   padding-top: 5px;
   width: 200px;
 }
-#skills-header, #languages-header {
+#skills-header, #languages-header, #links-header, #contact-info-header {
   font-size: 1.1em;
   font-weight: 600;
   text-transform: uppercase;
@@ -216,23 +217,30 @@ body {
     {% endif %}
 
 
-    {#
-    <div>TODO: telephone number</div>
-    <div>TODO: email address</div>
+    {# TODO
+    <div id="contact-info">
+      <div id="contact-info-header">Contact Info</div>
+      <div>TODO: telephone number</div>
+      <div>TODO: email address</div>
+    </div>
     #}
-    {% if static_site_domain_name is defined %}
-    <div>
-      <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
-    </div>
-    {% endif %}
 
-    {% if web_accounts is defined and web_accounts|length %}
-    {% for account in web_accounts %}
-    <div>
-      <a href="https://www.{{ account.url_segment }}/{{ account.my_username }}" target="_blank">{{ account.url_segment }}/{{ account.my_username }}</a>
+    <div id="links">
+      <div id="links-header">Links</div>
+      {% if static_site_domain_name is defined %}
+      <div>
+        <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
+      </div>
+      {% endif %}
+
+      {% if web_accounts is defined and web_accounts|length %}
+      {% for account in web_accounts %}
+      <div>
+        <a href="https://www.{{ account.url_segment }}/{{ account.my_username }}" target="_blank">{{ account.url_segment }}/{{ account.my_username }}</a>
+      </div>
+      {% endfor %}
+      {% endif %}
     </div>
-    {% endfor %}
-    {% endif %}
   </div>
 
 </div>

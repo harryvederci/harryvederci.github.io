@@ -12,8 +12,8 @@ body {
   grid-area: about-me;
 }
 
-#skills-languages-and-contact-info {
-  grid-area: skills-languages-and-contact-info;
+#skills-languages-links-contactinfo {
+  grid-area: skills-languages-links-contactinfo;
 }
 
 #experience-container {
@@ -38,8 +38,8 @@ body {
   /*grid-template-columns: 250px  1fr;*/
   grid-template-columns: 250px  minmax(400px, 600px);
   grid-template-areas:
-             "full-name-and-job-title           about-me"
-             "skills-languages-and-contact-info projects";
+             "name-and-title                     about-me"
+             "skills-languages-links-contactinfo projects";
   background-color: #fff;
   color: #444;
 }
@@ -48,15 +48,15 @@ body {
     /* grid-gap: 5px; */
     grid-template-columns: 1fr;
     grid-template-areas:
-               "full-name-and-job-title"
+               "name-and-title"
                "about-me"
                "projects"
-               "skills-languages-and-contact-info";
+               "skills-languages-links-contactinfo";
   }
 }
 
 @media only screen and (min-width: 500px) and (max-width: 700px) {
-  #skills-languages-and-contact-info {
+  #skills-languages-links-contactinfo {
     display: grid;
     grid-gap: 50px;
     grid-template-areas:
@@ -162,7 +162,7 @@ body {
       {% endfor %}
     </div>
 
-    <div id="full-name-and-job-title">
+    <div id="name-and-title">
       <div id="full-name">
         <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
       </div>
@@ -172,7 +172,7 @@ body {
       </div>
     </div>
 
-  <div id="skills-languages-and-contact-info">
+  <div id="skills-languages-links-contactinfo">
     {% if skills|length %}
     <div id="skills">
       <div id="skills-header">Skills</div>
@@ -216,8 +216,10 @@ body {
     {% endif %}
 
 
+    {#
     <div>TODO: telephone number</div>
     <div>TODO: email address</div>
+    #}
     {% if static_site_domain_name is defined %}
     <div>
       <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>

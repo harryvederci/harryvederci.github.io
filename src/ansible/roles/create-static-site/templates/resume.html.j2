@@ -1,21 +1,79 @@
 <style>
-{# TODO: move style to css file #}
 
-* {
-  box-sizing: border-box;
-}
 
 body {
   margin: 0;
   color: #4d4d4d;
-  {# font-family: 'PT Sans', sans-serif; #}
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 0.9em;
 }
 
+#about-me {
+  grid-area: about-me;
+}
+
+#skills-and-languages {
+  grid-area: skills-and-languages;
+}
+
+#experience-container {
+  grid-area: content;
+}
+
+#full-name {
+  grid-area: full-name;
+}
+
+#job-title {
+  grid-area: job-title;
+}
+
+#projects {
+  grid-area: projects;
+}
 
 #resume-container {
-  /* min-width: 800px; */ /* TODO: make proper responsive (mobile-friendly) version */
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 250px  1fr;
+  grid-template-areas:
+             "full-name            job-title"
+             "about-me             projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects"
+             "skills-and-languages projects";
+  background-color: #fff;
+  color: #444;
+}
+@media only screen and (max-width: 600px) {
+  #resume-container {
+    /* grid-gap: 5px; */
+    grid-template-columns: 1fr;
+    grid-template-areas:
+               "full-name"
+               "job-title"
+               "about-me"
+               "skills-and-languages"
+               "projects";
+  }
 }
 
 .skill-icons-container {
@@ -23,18 +81,7 @@ body {
   user-select: none;
 }
 
-.column-left {
-  width: 70%;
-  margin-top: 10px;
-  float: left;
-  padding: 5px 20px;
-}
-.column-right {
-  width: 30%;
-  margin-top: 10px;
-  float: left;
-  padding: 5px 20px;
-}
+
 
 #first-name, #last-name {
   font-size: 1.8em;
@@ -80,29 +127,6 @@ body {
   padding-top: 3px;
 }
 
-.row:after { {# Clear floats after the columns #}
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media only screen and (max-width: 799px) {
-  .column-left, .column-right {
-    /* margin-top: 0px; */
-    width: unset;
-  }
-}
-@media only screen and (min-width: 800px) {
-  body {
-    max-width: 50rem; {# TODO: check if either this or the global css file max-width needs to be adjusted #}
-    padding: 2rem;
-    margin: auto;
-  }
-  .column-right {
-    border-left: 1px solid #acacac;
-  }
-}
-
 </style>
 
 
@@ -111,7 +135,6 @@ body {
 
 <div id="resume-container">
 
-  <div class="column-left">
     <div id="about-me">
       <div id="about-me-header">
         About me
@@ -121,7 +144,7 @@ body {
       </div>
     </div>
 
-    <div id="experience-container">
+    <div id="projects">
 
       <div id="experience-header">Experience</div>
       {% for project in projects %}
@@ -138,35 +161,12 @@ body {
             <span>{{ project.description }}</span>
           </div>
 
-          {# TODO: do not show on resume, only on website project list. #}
-          {#
-            {% if project.links is defined and project.links|length %}
-            <div>
-              Links:
-              {% for link in project.links %}
-              <div> - {{ link.name }}: {{ link.url }}</div>
-              {% endfor %}
-            </div>
-            {% endif %}
-          #}
-
         </div>
-        <!-- TODO: remove, or add a filter feature
-        {% if project.technologies|length %}
-          <ul>
-            {% for technology in project.technologies %}
-            <li>{{ technology }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-        -->
       </div>
       {% endfor %}
     </div>
-  </div>
 
-  <div class="column-right">
-    <div id="full-name"> {# TODO: Make responsive. If screen is not wide enough for left+right columns, the full-name element should be displayed on top of the page. #}
+    <div id="full-name">
       <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
     </div>
 
@@ -174,6 +174,7 @@ body {
       {{ job_title }}
     </div>
 
+  <div id="skills-and-languages">
     {% if skills|length %}
     <div id="skills-box">
       <div id="skills-header">Skills</div>
@@ -197,7 +198,6 @@ body {
     </div>
     {% endif %}
 
-    {# TODO: refactor #}
     {% if languages|length %}
     <div id="languages-box">
       <div id="languages-header">Languages</div>
@@ -226,7 +226,6 @@ body {
     <div>TODO: email address</div>
     {% if static_site_domain_name is defined %}
     <div>
-      {# TODO: add internet globe icon #}
       <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
     </div>
     {% endif %}

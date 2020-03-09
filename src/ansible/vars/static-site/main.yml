@@ -1,5 +1,6 @@
 ---
 static_site_domain_name: hprins.com
+static_site_domain_name_with_www_prefix: www.hprins.com # using this in github CNAME should fix godaddy https issues
 static_site_deploy_directory: ../../docs
 index_page_temporary_message: <h1>Coming soon...</h1>
 
@@ -25,18 +26,19 @@ about_me: > # NOTE: Try to keep below ~300 characters.
        with friendly and constructive collegiality.
 
 skills: # NOTE: Try to keep names below ~15 characters each.
-  - {level: 3, name: Java (Spring)}
-  - {level: 3, name: Docker}
-  - {level: 3, name: Angular 2+}
-  - {level: 3, name: SQL}
-  - {level: 3, name: TypeScript}
-  - {level: 2, name: Ansible}
-  - {level: 2, name: Shell Scripting}
-  - {level: 2, name: Node.js}
-  - {level: 2, name: Python}
-  - {level: 2, name: Ruby on Rails}
-  - {level: 2, name: React}
-  - {level: 1, name: Haskell}
+  - {level: 4, name: Java (Spring)}
+  - {level: 4, name: Docker}
+  - {level: 4, name: Angular 2+}
+  - {level: 4, name: SQL}
+  - {level: 4, name: TypeScript}
+  - {level: 3, name: Ansible}
+  - {level: 3, name: Shell Scripting}
+  - {level: 3, name: Node.js}
+  - {level: 3, name: Python}
+  - {level: 3, name: Ruby on Rails}
+  - {level: 3, name: React}
+  - {level: 2, name: Haskell}
+  - {level: 1, name: Clojure}
   - {level: 1, name: Scala}
 
 languages:

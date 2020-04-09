@@ -5,6 +5,8 @@
 #     extensions: [yml]
 
 - name: Remove current deploy directory
+  # TODO: change deploy dictory variable content (should be project root) and prevent .git,
+  #       src, etc from being deleted.
   file:
     path: '{{ static_site_deploy_directory }}'
     state: absent

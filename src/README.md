@@ -1,7 +1,9 @@
 # hprins.com
 
 ## Development workflow
-The docs directory contains the deployed version of the website.
-To build and deploy a new version, run the following command:
-    (cd src/ansible && ansible-playbook playbook.yml)
+**NOTE**: The ansible deploy setup is currently broken, due to a quickfix I had
+to do to make the https config (kind of) work.
 
+To build a new version, run the following command from
+the project root directory:
+    (cd src/ansible && ansible-playbook playbook.yml)

@@ -1,46 +1,7 @@
----
+job_name,job_title,employer,employer_location,client,client_location,description,time_period,technologies
+RWS Harvester,Backend Developer,IBM CIC Benelux,Groningen,RWS (Dutch Directorate-General for Public Works and Water Management),Delft,I created an application that retrieves sensor measurements\, transforms them\, and writes them to a database that is used by a publicly available service.,jan 2020 - now,['Java (Spring)';'SQL (Oracle)']
 
-
-job_title: Full Stack Developer # / Software Engineer
-
-about_me: > # NOTE: Try to keep below ~300 characters.
-       I am a full stack developer with a background in IT-Law.
-       I enjoy automating DevOps processes and delivering robust and intuitive
-       end products to clients.
-       My positive character and social skills allow me to combine hard work
-       with friendly and constructive collegiality.
-
-languages:
-  - name: Dutch
-    level: 5
-  - name: English
-    level: 4
-
-feedback_messages:
-  from_colleagues:
- ## >>> TEMPLATE ###
-  # - id: # Something that you can recognise the message sender with, without personal information.
-  #   year: # yyyy  # Year the feedback was receied (not a full date, it is good enough to get a good picture of how recent is was, yet makes it harder to deduce who made the comment).
-  #   content: | # Make sure to censor content if necessary to keep it anonymous!
-  #          "
-  #          (insert content here)
-  #          "
-  #   sender_if_agreed_to_publish: # Name of the sender, if they agreed to publish their feedback.
- ## <<< TEMPLATE ###
-
-projects:
-  - id: RWS Harvester
-    job_title: Backend Developer
-    employer: IBM CIC Benelux
-    employer_location: Groningen
-    client: RWS (Dutch Directorate-General for Public Works and Water Management)
-    client_location: Delft
-    description: >
-              I created an application that retrieves sensor measurements, transforms them,
-              and writes them to a database that is used by a publicly available service.
-    time_period: jan 2020 - now
-    technologies: ['Java (Spring)', 'SQL (Oracle)']
-
+TODO:
   - id:
     job_title: Backend Developer
     employer: IBM CIC Benelux
@@ -221,24 +182,3 @@ projects:
  #     - name:
  #       url:
 ### / FULL PROJECT TEMPLATE ###
-
-
-### TODO:
-#
-# Make dynamic, in a way that no sensitive information about clients can be deduced.
-#
-# Add stats about:
-# - total amount of clients
-#   - total amount of projects
-#     - applications per project
-#
-# - amount of containers/apps deployed
-#   - using which technologies (manual, concourse, ansible, etc)
-#   - of which containing my code
-#
-# - amount of countries:
-#   - in which my apps have been used (later in my career: in x continents)
-#   - in which I worked
-#
-# - proof of concepts -> led to projects -> led to X-figure projects.
-

@@ -1,8 +1,0 @@
----
-- name: Copy files.
-  copy:
-    src: '{{ item }}'
-    dest: '{{ deploy_directory }}/{{ item }}'
-  with_items:
-    - '{{ files }}'
-

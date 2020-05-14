@@ -1,3 +1,64 @@
+---
+static_site_domain_name: hprins.com
+static_site_domain_name_with_www_prefix: www.hprins.com # using this in github CNAME should fix https issues
+static_site_deploy_directory: ../../docs
+index_page_temporary_message: <h1>Coming soon...</h1>
+
+first_name: Harry
+last_name: Prins
+title: LL.M
+
+web_accounts:
+  - service_name: linkedin
+    url_segment: linkedin.com/in
+    my_username: hwprins
+  - service_name: github
+    url_segment: github.com
+    my_username: harryvederci
+
+job_title: Full Stack Developer # / Software Engineer
+
+about_me: > # NOTE: Try to keep below ~300 characters.
+       I am a full stack developer with a background in IT-Law.
+       I enjoy automating DevOps processes and delivering robust and intuitive
+       end products to clients.
+       My positive character and social skills allow me to combine hard work
+       with friendly and constructive collegiality.
+
+skills: # NOTE: Try to keep names below ~15 characters each.
+  - {level: 4, name: Java (Spring)}
+  - {level: 4, name: Docker}
+  - {level: 4, name: Angular 2+}
+  - {level: 4, name: SQL}
+  - {level: 4, name: TypeScript}
+  - {level: 3, name: Ansible}
+  - {level: 3, name: Shell Scripting}
+  - {level: 3, name: Node.js}
+  - {level: 3, name: Python}
+  - {level: 3, name: Ruby on Rails}
+  - {level: 3, name: React}
+  - {level: 2, name: Haskell}
+  - {level: 1, name: Clojure}
+  - {level: 1, name: Scala}
+
+languages:
+  - name: Dutch
+    level: 5
+  - name: English
+    level: 4
+
+feedback_messages:
+  from_colleagues:
+ ## >>> TEMPLATE ###
+  # - id: # Something that you can recognise the message sender with, without personal information.
+  #   year: # yyyy  # Year the feedback was receied (not a full date, it is good enough to get a good picture of how recent is was, yet makes it harder to deduce who made the comment).
+  #   content: | # Make sure to censor content if necessary to keep it anonymous!
+  #          "
+  #          (insert content here)
+  #          "
+  #   sender_if_agreed_to_publish: # Name of the sender, if they agreed to publish their feedback.
+ ## <<< TEMPLATE ###
+
 projects:
   - id: RWS Harvester
     job_title: Backend Developer
@@ -178,16 +239,37 @@ projects:
         url: https://www.wodc.nl/onderzoeksdatabase/2693-evaluatie-van-de-wet-biometrie.aspx
 
 ### FULL PROJECT TEMPLATE ###
-#  - id: # ID with which you can easily recognize the project. Primarily for your own reference.
-#    job_title:
-#    employer: <company I worked for>
-#    employer_location:
-#    client: <if different than employer>
-#    client_location:
-#    description: >
-#    time_period: mmm YYYY - mmm YYYY
-#    technologies: ['', '']
-#    links:
-#      - name:
-#        url:
+ # - id: # ID with which you can easily recognize the project. Primarily for your own reference.
+ #   job_title:
+ #   employer: <company I worked for>
+ #   employer_location:
+ #   client: <if different than employer>
+ #   client_location:
+ #   description: >
+ #   time_period: mmm YYYY - mmm YYYY
+ #   technologies: ['', '']
+ #   links:
+ #     - name:
+ #       url:
+### / FULL PROJECT TEMPLATE ###
+
+
+### TODO:
+#
+# Make dynamic, in a way that no sensitive information about clients can be deduced.
+#
+# Add stats about:
+# - total amount of clients
+#   - total amount of projects
+#     - applications per project
+#
+# - amount of containers/apps deployed
+#   - using which technologies (manual, concourse, ansible, etc)
+#   - of which containing my code
+#
+# - amount of countries:
+#   - in which my apps have been used (later in my career: in x continents)
+#   - in which I worked
+#
+# - proof of concepts -> led to projects -> led to X-figure projects.
 

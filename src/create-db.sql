@@ -24,8 +24,7 @@ CREATE TABLE project (
   client TEXT,
   client_location TEXT,
   description TEXT,
-  time_period TEXT,
-  technologies TEXT
+  time_period TEXT
 );
 
 INSERT INTO project (nickname, job_title, employer, employer_location, client, client_location, description, time_period)

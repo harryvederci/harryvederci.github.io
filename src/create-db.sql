@@ -77,10 +77,14 @@ values
 create table project_technologies
 (
    id INTEGER PRIMARY KEY,
-   project_id INT,
-   technology_id INT,
-   FOREIGN KEY (project_id) REFERENCES project(id),
+   project_id INTEGER,
+   technology_id INTEGER,
+   FOREIGN KEY (project_id) REFERENCES project(id)
+     ON UPDATE CASCADE
+     ON DELETE CASCADE,
    FOREIGN KEY (technology_id) REFERENCES technology(id)
+     ON UPDATE CASCADE
+     ON DELETE CASCADE
 );
 
 insert into project_technologies (project_id, technology_id)
@@ -115,9 +119,11 @@ values
 
 CREATE TABLE skill
 (
-   level INTEGER,
-   technology_id INT,
+   level INTEGER, -- Level, on a scale from 1 to 5.
+   technology_id INTEGER,
    FOREIGN KEY (technology_id) REFERENCES technology(id)
+     ON UPDATE CASCADE
+     ON DELETE CASCADE
 );
 
 INSERT INTO skill (level, technology_id)

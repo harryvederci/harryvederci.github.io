@@ -84,27 +84,31 @@ create table project_technologies
    FOREIGN KEY (technology_id) REFERENCES technology(id)
 );
 
-CREATE TABLE skill (
-   level TEXT,
-   name TEXT
+CREATE TABLE skill
+(
+   level INTEGER,
+   technology_id INT,
+   FOREIGN KEY (technology_id) REFERENCES technology(id)
 );
 
-INSERT INTO skill (level, name)
+INSERT INTO skill (level, technology_id)
 VALUES
-  ('4','Java (Spring)'),
-  ('4','Docker'),
-  ('4','Angular 2+'),
-  ('4','SQL'),
-  ('4','TypeScript'),
-  ('3','Ansible'),
-  ('3','Shell Scripting'),
-  ('3','Node.js'),
-  ('3','Python'),
-  ('3','Ruby on Rails'),
-  ('3','React'),
-  ('2','Haskell'),
-  ('1','Clojure'),
-  ('1','Scala');
+  (4,1),
+  (4,8),
+  (4,5),
+  (4,12),
+  (4,2),
+  (4,13),
+  (3,14),
+  (3,15),
+  (3,16),
+  (3,11),
+  (3,17),
+  (3,10),
+  (2,18),
+  (1,19),
+  (1,20);
+
 
 COMMIT;
 

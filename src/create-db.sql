@@ -16,6 +16,7 @@ VALUES
   ('github',' harryvederci',' https://www.github.com/harryvederci');
 
 CREATE TABLE project (
+  id INTEGER PRIMARY KEY,
   nickname TEXT,
   job_title TEXT,
   employer TEXT,
@@ -42,6 +43,46 @@ VALUES
   ('Apple-style Microsite','Front End Developer','IBM CIC Benelux','Groningen','','','To impress an important potential client for IBM, I created a beautiful Apple-style microsite.','jul 2017 - aug 2017','Angular 4'),
   ('Watson Bank','Front End Developer','IBM CIC Benelux','Groningen','','','For a major German bank, I went to Frankfurt to create the front end of an IBM Watson application. With a rapidly approaching deadline, I made creative solutions to overcome the limitations of a very restricted developing environment.','jun 2017 - jul 2017','HTML/CSS/JS'),
   ('Biometry Law Evaluation','Student-Researcher (graduation project)','University of Groningen','','','','For an official law evaluation, I wrote a Python application to analyze if Dutch government agencies acted in compliance with the law when collecting biometric data from foreigners.','jun 2016 - jan 2017','Python');
+
+
+create table technology
+(
+   id INTEGER PRIMARY KEY,
+   name TEXT NOT NULL
+);
+
+insert into technology (name)
+values
+  ('Spring Boot'),
+  ('SQL'),
+  ('Oracle DB'),
+  ('Netty'),
+  ('Docker'),
+  ('Nginx'),
+  ('RHEL'),
+  ('Java'),
+  ('Vimscript'),
+  ('React'),
+  ('Python'),
+  ('Angular 2+'),
+  ('TypeScript'),
+  ('Ansible'),
+  ('Shell Scripting'),
+  ('Node.js'),
+  ('Ruby on Rails'),
+  ('Haskell'),
+  ('Clojure'),
+  ('Scala');
+
+
+create table project_technologies
+(
+   id INTEGER PRIMARY KEY,
+   project_id INT,
+   technology_id INT,
+   FOREIGN KEY (project_id) REFERENCES project(id),
+   FOREIGN KEY (technology_id) REFERENCES technology(id)
+);
 
 CREATE TABLE skill (
    level TEXT,

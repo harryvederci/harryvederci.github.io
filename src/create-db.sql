@@ -1,5 +1,5 @@
 #! /bin/sh
-exec sh -c "mkdir -p .data && tail -n +3 $0 | sqlite3 .data/data.db"
+exec sh -c "mkdir -p .data/backup && mv ./.data/data.db ./.data/backup/data-$(date +%s).db  || true && tail -n +3 $0 | sqlite3 .data/data.db"
 
 PRAGMA foreign_keys=ON;
 

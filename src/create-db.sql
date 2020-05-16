@@ -19,12 +19,12 @@ CREATE TABLE project (
   id INTEGER PRIMARY KEY,
   nickname TEXT,
   job_title TEXT,
-  employer TEXT,
-  employer_location TEXT,
-  client TEXT,
+  employer TEXT,          -- TODO: create employer table, with id + name columns. Refer to id here.
+  employer_location TEXT, -- TODO: create city table, with id + name (+ location)
+  client TEXT,            -- TODO: add comment explaining difference between employer and client.
   client_location TEXT,
   description TEXT,
-  time_period TEXT
+  time_period TEXT        -- TODO: break up in start_date and end_date (mm YYYY)
 );
 
 INSERT INTO project (nickname, job_title, employer, employer_location, client, client_location, description, time_period)

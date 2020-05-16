@@ -78,6 +78,7 @@ CREATE TABLE project (
   client_id INTEGER,
   -- TODO: add work_city column for Groningen-PoR-Munich type situations.
   -- TODO: add comment explaining difference between employer and client.
+  -- TODO: create job_title table. Refer to it from this table. (Will probably break 1+ views.)
   time_period TEXT, -- TODO: break up into start_date and end_date (mm YYYY)
   description TEXT,
   foreign key (employer_id) references organisation(id)
@@ -204,6 +205,21 @@ VALUES
   (2,18),
   (1,19),
   (1,20);
+
+
+
+create view vw_organisation
+as
+select
+  organisation.id as id,
+  organisation.name as name,
+  city.name as city_name,
+  country.name as country_name
+from
+  organisation
+inner join city on city.id = city_id
+inner join country on country.id = country_id;
+
 
 
 COMMIT;

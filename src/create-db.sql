@@ -1,6 +1,15 @@
 #! /bin/sh
 exec sh -c "mkdir -p .data/backup && mv .data/data.db .data/backup/data-$(date +%s).db 2> /dev/null; tail -n +3 $0 | sqlite3 .data/data.db"
 
+
+
+
+-- TODO: Set "NOT NULL" for columns, where applicable.
+
+
+
+
+
 PRAGMA foreign_keys=ON;
 
 BEGIN TRANSACTION;
@@ -46,13 +55,13 @@ CREATE TABLE project (
   id INTEGER PRIMARY KEY,
   nickname TEXT,
   job_title TEXT,
-  employer TEXT,          -- TODO: create employer table, with id + name columns. Refer to id here.
+  employer TEXT,          -- TODO: create company/organization/legal_entity table, with id + name (+ city?) columns. Refer to id here.
   employer_city INTEGER,
   -- TODO: add work_city column for Groningen-PoR-Munich type situations?
   client TEXT,            -- TODO: add comment explaining difference between employer and client.
   client_city TEXT,
+  time_period TEXT,       -- TODO: break up into start_date and end_date (mm YYYY)
   description TEXT,
-  time_period TEXT,        -- TODO: break up in start_date and end_date (mm YYYY)
   foreign key (employer_city) references city(id)
     on update cascade
     on delete restrict

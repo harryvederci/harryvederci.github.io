@@ -51,40 +51,58 @@ values
   ('The Hague',1),
   ('Delft',1);
 
-CREATE TABLE project (
-  id INTEGER PRIMARY KEY,
-  nickname TEXT,
-  job_title TEXT,
-  employer TEXT,          -- TODO: create company/organization/legal_entity table, with id + name (+ city?) columns. Refer to id here.
-  employer_city INTEGER,
-  -- TODO: add work_city column for Groningen-PoR-Munich type situations?
-  client TEXT,            -- TODO: add comment explaining difference between employer and client.
-  client_city INTEGER,
-  time_period TEXT,       -- TODO: break up into start_date and end_date (mm YYYY)
-  description TEXT,
-  foreign key (employer_city) references city(id)
-    on update cascade
-    on delete restrict,
-  foreign key (client_city) references city(id)
+create table organisation (
+  id integer primary key,
+  name text,
+  unabbreviated_name text, -- optional: full name if normal name is abbreviated
+  city_id integer,
+  foreign key (city_id) references city(id)
     on update cascade
     on delete restrict
 );
 
-INSERT INTO project (nickname, job_title, employer, employer_city, client, client_city, time_period, description)
+insert into organisation (name, unabbreviated_name, city_id)
+values
+  ('University of Groningen',null,1),
+  ('IBM CIC Benelux',null,1),
+  ('(confidential)',null,2),
+  ('Port of Rotterdam',null,3),
+  ('SportInnovator',null,4),
+  ('RWS','Dutch Directorate-General for Public Works and Water Management',5);
+
+CREATE TABLE project (
+  id INTEGER PRIMARY KEY,
+  nickname TEXT,
+  job_title TEXT,
+  employer_id INTEGER,
+  client_id INTEGER,
+  -- TODO: add work_city column for Groningen-PoR-Munich type situations.
+  -- TODO: add comment explaining difference between employer and client.
+  time_period TEXT, -- TODO: break up into start_date and end_date (mm YYYY)
+  description TEXT,
+  foreign key (employer_id) references organisation(id)
+    on update cascade
+    on delete restrict,
+  foreign key (client_id) references organisation(id)
+    on update cascade
+    on delete restrict
+);
+
+INSERT INTO project (nickname, job_title, employer_id, client_id, time_period, description)
 VALUES
-  ('RWS Harvester','Backend Developer','IBM CIC Benelux',1,'RWS (Dutch Directorate-General for Public Works and Water Management)',5,'jan 2020 - now','I created an application that retrieves sensor measurements, transforms them, and writes them to a database that is used by a publicly available service.'),
-  ('Harvester PoC','Backend Developer','IBM CIC Benelux',1,'RWS',5,'nov 2019 - dec 2019','As a Proof of Concept, I created and demonstrated a "Harvester" application that retrieves sensor measurements, transforms them, and writes them to a database that is used by a publicly available service. The Proof of Concept was a success, and was directly followed up by a 6-figure project.'),
-  ('MuxProxy','Backend Developer','IBM CIC Benelux',1,'RWS',5,'aug 2019 - nov 2019','For Rijkswaterstaat (the Dutch Directorate-General for Public Works and Water Management) I created an application that forwards incoming sensor data in a non-blocking way. I added a feature to compress messages and send them as a batch, to lower the application its bandwidth usage.'),
-  ('CE/DR','DevOps Engineer','IBM CIC Benelux',1,null,null,'jun 2019 - aug 2019','I containerized a Meteor/MongoDB application, configured Red Hat Enterprise Linux servers, and deployed the application using Docker Swarm. I also added an Nginx service to proxy requests and provide TLS/SSL support.'),
-  ('CIC Websites','Full Stack Developer','IBM CIC Benelux',1,null,null,'dec 2018 - jun 2019','I merged 9 applications (database, backend, and frontend) into one, enabling a smoother deployment process while cutting down hosting costs. I added new features, pushed them to production, and moved the application to the ibm.com domain.'),
-  ('PoR Microservices','Backend Developer','IBM CIC Benelux',1,'Port of Rotterdam',3,'apr 2018 - dec 2018','I was involved in the creation of several Java microservices for an award winning Port of Rotterdam enterprise IoT application. My team independently designed solutions and took care of the DevOps process.'),
-  ('PoR GUI','Front End Developer','IBM CIC Benelux',1,'Port of Rotterdam',3,'jan 2018 - apr 2018','I improved the quality, structure and development workflow of an enterprise IoT application for Port of Rotterdam. I did this by unit testing and refactoring existing code, adding new features, and reviewing the code of other developers. I also added a test validation script to ensure reviewers that new code will not break existing features.'),
-  ('EA VAT','Front End Developer','IBM CIC Benelux',1,null,null,'dec 2017 - dec 2017','For IBM, I was involved in the development of a tool that clients and consultants can use to assess the value of enterprise applications.'),
-  ('SportInnovator','Full Stack Developer','IBM CIC Benelux',1,'SportInnovator',4,'jul 2017 - dec 2017','I added new features to a government-owned Ruby on Rails application about innovation in sports. I deployed changes to production myself.'),
-  ('PoR PoC Munich','Front End Developer','IBM CIC Benelux',1,'Port of Rotterdam',3,'aug 2017 - jul 2017','As a Proof of Concept, I created the front end of an application that visualises data collected by sensors in the Port of Rotterdam. The Proof of Concept was a success, and was followed up by a big enterprise project spanning multiple years.'),
-  ('Apple-style Microsite','Front End Developer','IBM CIC Benelux',1,null,null,'jul 2017 - aug 2017','To impress an important potential client for IBM, I created a beautiful Apple-style microsite.'),
-  ('Watson Bank','Front End Developer','IBM CIC Benelux',1,null,2,'jun 2017 - jul 2017','For a major German bank, I went to Frankfurt to create the front end of an IBM Watson application. With a rapidly approaching deadline, I made creative solutions to overcome the limitations of a very restricted developing environment.'),
-  ('Biometry Law Evaluation','Student-Researcher (graduation project)','University of Groningen',null,null,null,'jun 2016 - jan 2017','For an official law evaluation, I wrote a Python application to analyze if Dutch government agencies acted in compliance with the law when collecting biometric data from foreigners.');
+  ('RWS Harvester','Backend Developer',2,6,'jan 2020 - now','I created an application that retrieves sensor measurements, transforms them, and writes them to a database that is used by a publicly available service.'),
+  ('Harvester PoC','Backend Developer',2,6,'nov 2019 - dec 2019','As a Proof of Concept, I created and demonstrated a "Harvester" application that retrieves sensor measurements, transforms them, and writes them to a database that is used by a publicly available service. The Proof of Concept was a success, and was directly followed up by a 6-figure project.'),
+  ('MuxProxy','Backend Developer',2,6,'aug 2019 - nov 2019','For Rijkswaterstaat (the Dutch Directorate-General for Public Works and Water Management) I created an application that forwards incoming sensor data in a non-blocking way. I added a feature to compress messages and send them as a batch, to lower the application its bandwidth usage.'),
+  ('CE/DR','DevOps Engineer',2,null,'jun 2019 - aug 2019','I containerized a Meteor/MongoDB application, configured Red Hat Enterprise Linux servers, and deployed the application using Docker Swarm. I also added an Nginx service to proxy requests and provide TLS/SSL support.'),
+  ('CIC Websites','Full Stack Developer',2,null,'dec 2018 - jun 2019','I merged 9 applications (database, backend, and frontend) into one, enabling a smoother deployment process while cutting down hosting costs. I added new features, pushed them to production, and moved the application to the ibm.com domain.'),
+  ('PoR Microservices','Backend Developer',2,4,'apr 2018 - dec 2018','I was involved in the creation of several Java microservices for an award winning Port of Rotterdam enterprise IoT application. My team independently designed solutions and took care of the DevOps process.'),
+  ('PoR GUI','Front End Developer',2,4,'jan 2018 - apr 2018','I improved the quality, structure and development workflow of an enterprise IoT application for Port of Rotterdam. I did this by unit testing and refactoring existing code, adding new features, and reviewing the code of other developers. I also added a test validation script to ensure reviewers that new code will not break existing features.'),
+  ('EA VAT','Front End Developer',2,null,'dec 2017 - dec 2017','For IBM, I was involved in the development of a tool that clients and consultants can use to assess the value of enterprise applications.'),
+  ('SportInnovator','Full Stack Developer',2,5,'jul 2017 - dec 2017','I added new features to a government-owned Ruby on Rails application about innovation in sports. I deployed changes to production myself.'),
+  ('PoR PoC Munich','Front End Developer',2,4,'aug 2017 - jul 2017','As a Proof of Concept, I created the front end of an application that visualises data collected by sensors in the Port of Rotterdam. The Proof of Concept was a success, and was followed up by a big enterprise project spanning multiple years.'),
+  ('Apple-style Microsite','Front End Developer',2,null,'jul 2017 - aug 2017','To impress an important potential client for IBM, I created a beautiful Apple-style microsite.'),
+  ('Watson Bank','Front End Developer',2,3,'jun 2017 - jul 2017','For a major German bank, I went to Frankfurt to create the front end of an IBM Watson application. With a rapidly approaching deadline, I made creative solutions to overcome the limitations of a very restricted developing environment.'),
+  ('Biometry Law Evaluation','Student-Researcher (graduation project)',1,null,'jun 2016 - jan 2017','For an official law evaluation, I wrote a Python application to analyze if Dutch government agencies acted in compliance with the law when collecting biometric data from foreigners.');
 
 
 create table technology

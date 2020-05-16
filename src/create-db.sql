@@ -226,14 +226,14 @@ as
 select
   project.id,
   organisation.name as employer_name,
-  -- city.name as employer_city,
+  city.name as employer_city,
   project.time_period,
   project.job_title,
   project.description
 from
   project
 inner join organisation on organisation.id = project.employer_id
--- inner join city on city.id = organisation.employer_id
+inner join city on city.id = organisation.city_id
 ;
 
 

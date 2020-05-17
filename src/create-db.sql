@@ -27,7 +27,7 @@ VALUES
 create table country (
   id integer primary key,
   name text,
-  code text -- TODO: change `text` to `varchar(2)` ?
+  code varchar(2) -- NOTE: sqlite changes `varchar(N)` to `text`, so it *will* allow more characters.
 );
 
 insert into country (name, code)

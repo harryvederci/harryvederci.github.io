@@ -71,6 +71,20 @@ values
   ('SportInnovator',null,4),
   ('RWS','Dutch Directorate-General for Public Works and Water Management',5);
 
+
+create table job (
+  id integer primary key,
+  title text
+);
+
+insert into job (title) values
+  ('DevOps Engineer'),
+  ('Backend Developer'),
+  ('Full Stack Developer'),
+  ('Front End Developer'),
+  ('Student-Researcher (graduation project)');
+
+
 CREATE TABLE project (
   id INTEGER PRIMARY KEY,
   nickname TEXT,

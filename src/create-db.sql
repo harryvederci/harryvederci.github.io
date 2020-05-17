@@ -26,13 +26,14 @@ VALUES
 
 create table country (
   id integer primary key,
-  name text
+  name text,
+  code text -- TODO: change `text` to `varchar(2)` ?
 );
 
-insert into country (name)
+insert into country (name, code)
 values
-  ('The Netherlands'),
-  ('Germany');
+  ('The Netherlands', 'NL'),
+  ('Germany', 'DE');
 
 create table city (
   id integer primary key,

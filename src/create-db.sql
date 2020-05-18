@@ -1,6 +1,8 @@
 #! /bin/sh
 exec sh -c "mkdir -p .data/backup && mv .data/data.db .data/backup/data-$(date +%s).db 2> /dev/null; tail -n +3 $0 | sqlite3 .data/data.db"
 
+pragma foreign_keys=on;
+
 
 
 
@@ -9,18 +11,15 @@ exec sh -c "mkdir -p .data/backup && mv .data/data.db .data/backup/data-$(date +
 
 
 
-
-PRAGMA foreign_keys=ON;
-
-BEGIN TRANSACTION;
-CREATE TABLE account (
-  service_name TEXT,
-  username TEXT,
-  url TEXT
+begin transaction;
+create table account (
+  service_name text,
+  username text,
+  url text
 );
 
-INSERT INTO account (service_name, username, url)
-VALUES
+insert into account (service_name, username, url)
+values
   ('linkedin',' hwprins',' https://www.linkedin.com/in/hwprins'),
   ('github',' harryvederci',' https://www.github.com/harryvederci');
 
@@ -85,17 +84,17 @@ insert into job (title) values
   ('Student-Researcher (graduation project)');
 
 
-CREATE TABLE project (
-  id INTEGER PRIMARY KEY,
-  nickname TEXT,
-  job_id INTEGER,
-  employer_id INTEGER,
-  client_id INTEGER,
+create table project (
+  id integer primary key,
+  nickname text,
+  job_id integer,
+  employer_id integer,
+  client_id integer,
   -- TODO: add work_city column for Groningen-PoR-Munich type situations.
   -- TODO: add comment explaining difference between employer and client.
   -- TODO: create job_title table. Refer to it from this table. (Will probably break 1+ views.)
-  time_period TEXT, -- TODO: break up into start_date and end_date (mm YYYY)
-  description TEXT,
+  time_period text, -- TODO: break up into start_date and end_date (mm YYYY)
+  description text,
   foreign key (job_id) references job(id)
     on update cascade
     on delete restrict,
@@ -107,8 +106,8 @@ CREATE TABLE project (
     on delete restrict
 );
 
-INSERT INTO project (nickname, job_id, employer_id, client_id, time_period, description)
-VALUES
+insert into project (nickname, job_id, employer_id, client_id, time_period, description)
+values
   ('RWS Harvester',2,2,6,'jan 2020 - now','I created an application that retrieves sensor measurements, transforms them, and writes them to a database that is used by a publicly available service.'),
   ('Harvester PoC',2,2,6,'nov 2019 - dec 2019','As a Proof of Concept, I created and demonstrated a "Harvester" application that retrieves sensor measurements, transforms them, and writes them to a database that is used by a publicly available service. The Proof of Concept was a success, and was directly followed up by a 6-figure project.'),
   ('MuxProxy',2,2,6,'aug 2019 - nov 2019','For Rijkswaterstaat (the Dutch Directorate-General for Public Works and Water Management) I created an application that forwards incoming sensor data in a non-blocking way. I added a feature to compress messages and send them as a batch, to lower the application its bandwidth usage.'),
@@ -126,8 +125,8 @@ VALUES
 
 create table technology
 (
-   id INTEGER PRIMARY KEY,
-   name TEXT NOT NULL
+   id integer primary key,
+   name text not null
 );
 
 insert into technology (name)
@@ -156,15 +155,15 @@ values
 
 create table project_technologies
 (
-   id INTEGER PRIMARY KEY,
-   project_id INTEGER,
-   technology_id INTEGER,
-   FOREIGN KEY (project_id) REFERENCES project(id)
-     ON UPDATE CASCADE
-     ON DELETE CASCADE,
-   FOREIGN KEY (technology_id) REFERENCES technology(id)
-     ON UPDATE CASCADE
-     ON DELETE CASCADE
+   id integer primary key,
+   project_id integer,
+   technology_id integer,
+   foreign key (project_id) references project(id)
+     on update cascade
+     on delete cascade,
+   foreign key (technology_id) references technology(id)
+     on update cascade
+     on delete cascade
 );
 
 insert into project_technologies (project_id, technology_id)
@@ -197,17 +196,17 @@ values
 
 
 
-CREATE TABLE skill
+create table skill
 (
-   level INTEGER, -- Level, on a scale from 1 to 5.
-   technology_id INTEGER,
-   FOREIGN KEY (technology_id) REFERENCES technology(id)
-     ON UPDATE CASCADE
-     ON DELETE CASCADE
+   level integer check("level" in (1, 2, 3, 4, 5)),
+   technology_id integer,
+   foreign key (technology_id) references technology(id)
+     on update cascade
+     on delete cascade
 );
 
-INSERT INTO skill (level, technology_id)
-VALUES
+insert into skill (level, technology_id)
+values
   (4,1),
   (4,8),
   (4,5),
@@ -223,7 +222,6 @@ VALUES
   (2,18),
   (1,19),
   (1,20);
-
 
 
 create view vw_organisation
@@ -258,5 +256,5 @@ inner join city on city.id = organisation.city_id;
 
 
 
-COMMIT;
+commit;
 

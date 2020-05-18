@@ -1,35 +1,31 @@
 
 <!-- TODO: create my own readme file content -->
 
-# Datasette for CSV files
+Uncomment lines in `requirements.txt` to install extra plugins.
 
-Drag and drop any CSV files you like to this project root and they will be converted into a SQLite database and loaded into a Datasette instance.
+## Getting started
+Installation command:
 
-Hit this Remix button to get your own copy of this project:
+    pip3 install -U -r requirements.txt --user && ./create-db.sql
 
-[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/remix/datasette-csvs)
 
-You can uncomment lines in `requirements.txt` to install extra plugins.
+Command to run datasette:
 
-See [Running Datasette on Glitch](https://simonwillison.net/2019/Apr/23/datasette-glitch/) for more about this project.
+    datasette .data/data.db --port 3000 --cors --config default_cache_ttl:0
+
 
 ## Configuring full-text search
+Datasette supports SQLite full-text search. You can configure it for a table
+using the `sqlite-utils` command-line tool.
 
-Datasette supports SQLite full-text search. You can configure it for a table using the `sqlite-utils` command-line tool.
+Command to show the tables and columns in your database:
 
-In the Glitch editor select Tools -> Full Page Console, then run the following:
+    sqlite-utils tables path/to/your/file.db --table --columns
 
-    $ cd .data
-    $ sqlite-utils tables data.db --table --columns
-    table    columns
-    -------  ------------------------------------
-    example  ['headline', 'body', 'url', 'extra']
 
-This shows you the tables and columns in your database.
+Command to make the `example` table searchable by `headline` and `body`:
 
-If you want to make the `example` table searchable by `headline` and `body`, run the following command:
+    sqlite-utils enable-fts path/to/your/file.db example headline body --fts4
 
-    $ sqlite-utils enable-fts data.db example headline body --fts4
-
-Your Datasette instance will now display a search box that can be used to search the text in those columns.
+Now Datasette will display a search box for the specified columns.
 

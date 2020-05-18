@@ -1,4 +1,4 @@
 - Create executable that sets options like "PRAGMA foreign_keys = ON;"
-- Always execute sql commands through executable.
-- Always open sqlite cli through executable.
+  - Always execute sql commands through executable.
+  - Always open sqlite cli through executable.
 

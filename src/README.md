@@ -1,7 +1,4 @@
-
-<!-- TODO: create my own readme file content -->
-
-Uncomment lines in `requirements.txt` to install extra plugins.
+# hprins.com
 
 ## Getting started
 Installation command:
@@ -28,4 +25,7 @@ Command to make the `example` table searchable by `headline` and `body`:
     sqlite-utils enable-fts path/to/your/file.db example headline body --fts4
 
 Now Datasette will display a search box for the specified columns.
+
+## Misc
+Uncomment lines in `requirements.txt` to install extra plugins.
 

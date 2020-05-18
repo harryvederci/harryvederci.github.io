@@ -1,7 +1,8 @@
 #! /bin/sh
 exec sh -c "mkdir -p .data/backup && mv .data/data.db .data/backup/data-$(date +%s).db 2> /dev/null; tail -n +3 $0 | sqlite3 .data/data.db"
-
 pragma foreign_keys=on;
+begin transaction;
+-- NOTE: sqlite changes `varchar(N)` to `text`, so it *will* allow more characters.
 
 
 
@@ -11,7 +12,6 @@ pragma foreign_keys=on;
 
 
 
-begin transaction;
 create table account (
   service_name text,
   username text,
@@ -24,9 +24,9 @@ values
   ('github',' harryvederci',' https://www.github.com/harryvederci');
 
 create table country (
-  id integer primary key,
-  name text,
-  code varchar(2) -- NOTE: sqlite changes `varchar(N)` to `text`, so it *will* allow more characters.
+  id integer primary key not null,
+  name text not null unique,
+  code varchar(2) unique
 );
 
 insert into country (name, code)
@@ -35,12 +35,13 @@ values
   ('Germany', 'DE');
 
 create table city (
-  id integer primary key,
-  name text,
-  country_id integer,
+  id integer primary key not null,
+  name text not null,
+  country_id integer not null,
   foreign key (country_id) references country(id)
     on update cascade
-    on delete restrict
+    on delete restrict,
+  unique (name, country_id)
 );
 
 insert into city (name, country_id)
@@ -52,10 +53,10 @@ values
   ('Delft',1);
 
 create table organisation (
-  id integer primary key,
-  name text,
+  id integer primary key not null,
+  name text not null,
   unabbreviated_name text, -- optional: full name if normal name is abbreviated
-  city_id integer,
+  city_id integer not null,
   foreign key (city_id) references city(id)
     on update cascade
     on delete restrict
@@ -253,6 +254,8 @@ from
 inner join organisation on organisation.id = project.client_id
 inner join job on job.id = project.job_id
 inner join city on city.id = organisation.city_id;
+
+
 
 
 

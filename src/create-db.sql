@@ -7,11 +7,6 @@ begin transaction;
 
 
 
--- TODO: Set "NOT NULL" for columns, where applicable.
-
-
-
-
 create table account (
   service_name text,
   username text,
@@ -224,6 +219,23 @@ values
   (2,18),
   (1,19),
   (1,20);
+
+
+create table feedback (
+  year varchar(4), -- Year the feedback was received (Q: Why not a full date? A: Privacy. This gives accurate enough estimate of how recent it was, yet makes it harder to deduce exactly who made the comment.).
+  -- NOTE: DB can't ensure anonimity of sender by content, so make sure to edit it yourself to keep it anonymous (if necessary)
+  content text not null,
+  sender_name text,
+  project_id integer, -- feedback can be linked to a project, but does not have to be.
+  foreign key (project_id) references project(id)
+    on update cascade
+    on delete restrict
+);
+
+insert into feedback (year, content, sender_name)
+values
+  ('2019', 'Lorem ipsum.', 'John')
+;
 
 
 create view vw_organisation

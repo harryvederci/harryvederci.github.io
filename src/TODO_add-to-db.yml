@@ -19,7 +19,6 @@ languages:
 feedback_messages:
   from_colleagues:
  ## >>> TEMPLATE ###
-  # - id: # Something that you can recognise the message sender with, without personal information.
   #   year: # yyyy  # Year the feedback was receied (not a full date, it is good enough to get a good picture of how recent is was, yet makes it harder to deduce who made the comment).
   #   content: | # Make sure to censor content if necessary to keep it anonymous!
   #          "

@@ -6,6 +6,9 @@ begin transaction;
 
 
 
+-- TODO: decide how to handle conflicts, such as unique constraint conflicts. Default=abort (https://sqlite.org/lang_conflict.html)
+
+
 
 create table account (
   service_name text,
@@ -223,16 +226,16 @@ values
 
 create table feedback (
   year varchar(4), -- Year the feedback was received (Q: Why not a full date? A: Privacy. This gives accurate enough estimate of how recent it was, yet makes it harder to deduce exactly who made the comment.).
-  -- NOTE: DB can't ensure anonimity of sender by content, so make sure to edit it yourself to keep it anonymous (if necessary)
-  content text not null,
-  sender_name text,
+  content text not null, -- NOTE: DB can't ensure anonimity of sender by content, so make sure to edit it yourself to keep it anonymous (if necessary)
+  sender_info text, -- NOTE: only include sender if sender is okay with it being published.
   project_id integer, -- feedback can be linked to a project, but does not have to be.
   foreign key (project_id) references project(id)
     on update cascade
-    on delete restrict
+    on delete restrict,
+  unique (year, content)
 );
 
-insert into feedback (year, content, sender_name)
+insert into feedback (year, content, sender_info)
 values
   ('2019', 'Lorem ipsum.', 'John')
 ;

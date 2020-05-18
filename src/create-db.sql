@@ -41,7 +41,7 @@ create table city (
   foreign key (country_id) references country(id)
     on update cascade
     on delete restrict,
-  unique (name, country_id)
+  unique (name, country_id) -- TODO: Check if countries exist that do have multiple cities with same name.
 );
 
 insert into city (name, country_id)
@@ -59,7 +59,8 @@ create table organisation (
   city_id integer not null,
   foreign key (city_id) references city(id)
     on update cascade
-    on delete restrict
+    on delete restrict,
+  unique (name, city_id)
 );
 
 insert into organisation (name, unabbreviated_name, city_id)
@@ -73,8 +74,8 @@ values
 
 
 create table job (
-  id integer primary key,
-  title text
+  id integer primary key not null,
+  title text not null
 );
 
 insert into job (title) values
@@ -86,14 +87,14 @@ insert into job (title) values
 
 
 create table project (
-  id integer primary key,
-  nickname text,
-  job_id integer,
-  employer_id integer,
-  client_id integer,
+  -- TODO: decide which columns can be null
   -- TODO: add work_city column for Groningen-PoR-Munich type situations.
   -- TODO: add comment explaining difference between employer and client.
-  -- TODO: create job_title table. Refer to it from this table. (Will probably break 1+ views.)
+  id integer primary key not null,
+  nickname text,
+  job_id integer not null,
+  employer_id integer,
+  client_id integer,
   time_period text, -- TODO: break up into start_date and end_date (mm YYYY)
   description text,
   foreign key (job_id) references job(id)
@@ -126,7 +127,7 @@ values
 
 create table technology
 (
-   id integer primary key,
+   id integer primary key not null,
    name text not null
 );
 
@@ -156,9 +157,9 @@ values
 
 create table project_technologies
 (
-   id integer primary key,
-   project_id integer,
-   technology_id integer,
+   id integer primary key not null,
+   project_id integer not null,
+   technology_id integer not null,
    foreign key (project_id) references project(id)
      on update cascade
      on delete cascade,
@@ -199,8 +200,8 @@ values
 
 create table skill
 (
-   level integer check("level" in (1, 2, 3, 4, 5)),
-   technology_id integer,
+   level integer not null check("level" in (1, 2, 3, 4, 5)),
+   technology_id integer not null,
    foreign key (technology_id) references technology(id)
      on update cascade
      on delete cascade

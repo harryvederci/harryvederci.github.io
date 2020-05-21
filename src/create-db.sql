@@ -257,7 +257,7 @@ inner join country on country.id = country_id;
 create view vw_project
 as
 select
-  project.id,
+  -- project.id,
   -- organisation.name as employer_name,
   organisation.name as client_name,
   city.name as employer_city,

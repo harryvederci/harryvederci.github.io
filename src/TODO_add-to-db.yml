@@ -16,18 +16,6 @@ languages:
   - name: English
     level: 4
 
-feedback_messages:
-  from_colleagues:
- ## >>> TEMPLATE ###
-  #   year: # yyyy  # Year the feedback was receied (not a full date, it is good enough to get a good picture of how recent is was, yet makes it harder to deduce who made the comment).
-  #   content: | # Make sure to censor content if necessary to keep it anonymous!
-  #          "
-  #          (insert content here)
-  #          "
-  #   sender_if_agreed_to_publish: # Name of the sender, if they agreed to publish their feedback.
- ## <<< TEMPLATE ###
-
-
 
 ### TODO: stats
 #

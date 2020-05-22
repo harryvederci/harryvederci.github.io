@@ -1,0 +1,10 @@
+## Essentials:
+datasette
+sqlite-utils
+pip
+
+# datasette-cluster-map # Plugin to plot latitude/longitude on a map
+# datasette-vega # Plugin to add bar/line/scatter plots
+
+## More plugins here: https://datasette.readthedocs.io/en/stable/ecosystem.html#datasette-plugins
+

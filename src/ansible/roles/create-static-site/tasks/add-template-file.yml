@@ -1,0 +1,8 @@
+---
+- name: Add template files.
+  template:
+    src: '{{ item }}.j2'
+    dest: '{{ deploy_directory }}/{{ item }}'
+  with_items:
+    - '{{ template_files }}'
+

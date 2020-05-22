@@ -1,0 +1,49 @@
+---
+static_site_domain_name: hprins.com
+static_site_domain_name_with_www_prefix: www.hprins.com # using this in github CNAME should fix https issues
+static_site_deploy_directory: ../../docs
+index_page_temporary_message: <h1>Coming soon...</h1>
+
+first_name: Harry
+last_name: Prins
+title: LL.M
+
+web_accounts:
+  - service_name: linkedin
+    url_segment: linkedin.com/in
+    my_username: hwprins
+  - service_name: github
+    url_segment: github.com
+    my_username: harryvederci
+
+job_title: Full Stack Developer # / Software Engineer
+
+about_me: > # NOTE: Try to keep below ~300 characters.
+       I am a full stack developer with a background in IT-Law.
+       I enjoy automating DevOps processes and delivering robust and intuitive
+       end products to clients.
+       My positive character and social skills allow me to combine hard work
+       with friendly and constructive collegiality.
+
+skills: # NOTE: Try to keep names below ~15 characters each.
+  - {level: 4, name: Java (Spring)}
+  - {level: 4, name: Docker}
+  - {level: 4, name: Angular 2+}
+  - {level: 4, name: SQL}
+  - {level: 4, name: TypeScript}
+  - {level: 3, name: Ansible}
+  - {level: 3, name: Shell Scripting}
+  - {level: 3, name: Node.js}
+  - {level: 3, name: Python}
+  - {level: 3, name: Ruby on Rails}
+  - {level: 3, name: React}
+  - {level: 2, name: Haskell}
+  - {level: 1, name: Clojure}
+  - {level: 1, name: Scala}
+
+languages:
+  - name: Dutch
+    level: 5
+  - name: English
+    level: 4
+

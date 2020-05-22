@@ -1,0 +1,254 @@
+<style>
+
+
+body {
+  /* margin: 0; */
+  color: #4d4d4d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+}
+
+#about-me {
+  grid-area: about-me;
+}
+
+#skills-languages-links-contactinfo {
+  grid-area: skills-languages-links-contactinfo;
+}
+
+#experience-container {
+  grid-area: content;
+}
+
+#full-name {
+  grid-area: full-name;
+}
+
+#job-title {
+  grid-area: job-title;
+}
+
+#projects {
+  grid-area: projects;
+}
+
+#resume-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 230px  minmax(400px, 600px);
+  grid-template-areas:
+             "name-and-title                     about-me"
+             "skills-languages-links-contactinfo projects";
+  background-color: #fff;
+  color: #444;
+}
+@media only screen and (max-width: 700px) {
+  #resume-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+               "name-and-title"
+               "about-me"
+               "projects"
+               "skills-languages-links-contactinfo";
+  }
+}
+
+@media only screen and (min-width: 470px) and (max-width: 700px) {
+  #skills-languages-links-contactinfo {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    grid-template-areas:
+      "skills languages"
+      "links contact-info";
+  }
+  #skills {
+    grid-area: skills;
+  }
+  #languages {
+    grid-area: languages;
+  }
+  #links {
+    grid-area: links;
+  }
+  #contact-info {
+    grid-area: contact-info;
+  }
+}
+
+
+.skill-icons-container {
+  float: right;
+  user-select: none;
+}
+
+
+
+#first-name, #last-name {
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+#job-title {
+  font-size: 0.9em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* TODO: refactor */
+#skills, #languages, #links, #contact-info {
+  padding-bottom: 15px;
+  width: 200px;
+}
+#skills-header, #languages-header, #links-header, #contact-info-header {
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#about-me-header, #experience-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+#experience-header {
+  margin-top: 10px;
+}
+
+.project {
+  padding: 5px 0;
+}
+
+.project:not(:last-child) {
+  border-bottom: 1px dashed blue;
+}
+
+.project-time-period {
+  float: right;
+  font-size: 0.75em;
+  /* font-size: 11px; */
+  padding-top: 3px;
+}
+
+</style>
+
+
+{# TODO: Add training/education section. #}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div id="resume-container">
+
+    <div id="about-me">
+      <div id="about-me-header">
+        About me
+      </div>
+      <div id="about-me-content">
+        {{ about_me }}
+      </div>
+    </div>
+
+    <div id="projects">
+
+      <div id="experience-header">Experience</div>
+      {% for project in projects %}
+      <div class="project">
+        <div class="project-header">
+          <div>
+            <span>
+              {{ project.employer }} {% if project.employer_location is defined %} ({{ project.employer_location }}) {% endif %}
+            </span>
+            <span class="project-time-period"> {{ project.time_period | upper }}</span>
+          </div>
+          <div>
+            <span><b>{{ project.job_title }}:</b></span>
+            <span>{{ project.description }}</span>
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div id="name-and-title">
+      <div id="full-name">
+        <span id="first-name">{{ first_name }}</span> <span id="last-name">{{ last_name }}</span>
+      </div>
+
+      <div id="job-title">
+        {{ job_title }}
+      </div>
+    </div>
+
+  <div id="skills-languages-links-contactinfo">
+    {% if skills|length %}
+    <div id="skills">
+      <div id="skills-header">Skills</div>
+      {% for skill in skills %}
+      <div class="skill">
+        <span class="skill-name-container">
+          {{ skill.name }}
+        </span>
+        <div class="skill-icons-container">
+          {% for n in range(skill.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
+          {% endfor %}
+          {% for n in range(5 - skill.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if languages|length %}
+    <div id="languages">
+      <div id="languages-header">Languages</div>
+      {% for language in languages %}
+      <div class="language">
+        <span class="skill-name-container">
+          {{ language.name }}
+        </span>
+        <div class="skill-icons-container">
+          {% for n in range(language.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="#1E90FF" />*</svg>
+          {% endfor %}
+          {% for n in range(5 - language.level) %}
+          <svg height="10" width="10"><circle cx="5" cy="5" r="4" stroke="black" stroke-width="1" fill="gray" fill-opacity="0.0" />&nbsp;</svg>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+
+    {# TODO
+    <div id="contact-info">
+      <div id="contact-info-header">Contact Info</div>
+      <div>TODO: telephone number</div>
+      <div>TODO: email address</div>
+    </div>
+    #}
+
+    <div id="links">
+      <div id="links-header">Links</div>
+      {% if static_site_domain_name is defined %}
+      <div>
+        <a href="https://{{ static_site_domain_name }}">{{ static_site_domain_name }}</a>
+      </div>
+      {% endif %}
+
+      {% if web_accounts is defined and web_accounts|length %}
+      {% for account in web_accounts %}
+      <div>
+        <a href="https://www.{{ account.url_segment }}/{{ account.my_username }}" target="_blank">{{ account.url_segment }}/{{ account.my_username }}</a>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+
